@@ -125,6 +125,9 @@ function App() {
               setActivePage={setActivePage}
               onOpenBookingModal={handleOpenBooking}
             />
+
+            {/* 3. Passenger Reviews Running Marquee Ticker (Home Page Only) */}
+            <CustomerReviewsMarquee />
           </>
         )}
 
@@ -165,9 +168,6 @@ function App() {
           />
         )}
       </main>
-
-      {/* Passenger Reviews Running Marquee Ticker */}
-      <CustomerReviewsMarquee />
 
       {/* Global Footer (Reduced Size) */}
       <Footer
