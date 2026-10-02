@@ -35,9 +35,9 @@ const DestinationsPage = ({ onSelectDestination }) => {
       <div className="absolute top-1/3 -right-32 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
       {/* -------------------------------------------------------------
-         PAGE HERO BANNER: SAME SPACIOUS SIZE & VISIBLE IMAGE AS HOME HERO
+         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[50vh] flex items-center justify-center pt-20 pb-12 overflow-hidden text-white">
+      <div className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80"

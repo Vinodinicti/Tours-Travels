@@ -16,9 +16,9 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
   return (
     <div>
       {/* -------------------------------------------------------------
-         1. HERO BANNER - 100% UN-OBSCURED BUS IMAGE & TITLE
+         1. HERO BANNER - 100% SCREEN VIEWPORT FIT BUS VIDEO & TITLE
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[70vh] sm:min-h-[78vh] pt-32 pb-20 overflow-hidden text-white flex items-center justify-center">
+      <div className="relative min-h-screen pt-32 pb-24 overflow-hidden text-white flex items-center justify-center">
         {/* BUS VIDEO BACKGROUND */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <video
