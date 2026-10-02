@@ -188,15 +188,15 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
           {/* gharsh11032000 Uiverse Hover Card Grid (Maroon & Gold Theme) */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto py-2">
             {FEATURED_DESTINATIONS_PER_DAY.slice(0, 3).map((dest) => (
-              <div key={dest.id} className="gharsh-card">
+              <div key={dest.id} className="gharsh-card group">
                 <div className="space-y-2">
-                  <h3 className="font-serif text-lg font-extrabold text-slate-900 leading-snug">{dest.name}</h3>
-                  <p className="text-gray-600 text-xs font-medium leading-relaxed">{dest.short}</p>
+                  <h3 className="font-serif text-lg font-extrabold text-slate-900 group-hover:text-white transition-colors duration-300 leading-snug">{dest.name}</h3>
+                  <p className="text-gray-600 text-xs font-medium group-hover:text-amber-100/90 transition-colors duration-300 leading-relaxed">{dest.short}</p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">TARIFF:</span>
-                  <span className="font-serif text-base font-extrabold text-[#800000]">₹{dest.perDayPrice.toLocaleString()} / day</span>
+                <div className="pt-3 border-t border-slate-100 group-hover:border-white/25 flex items-center justify-between transition-colors duration-300">
+                  <span className="text-[11px] font-extrabold text-gray-400 group-hover:text-amber-200 uppercase tracking-wider transition-colors duration-300">TARIFF:</span>
+                  <span className="font-serif text-base font-extrabold text-[#800000] group-hover:text-[#FBBF24] transition-colors duration-300">₹{dest.perDayPrice.toLocaleString()} / day</span>
                 </div>
               </div>
             ))}

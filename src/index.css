@@ -350,10 +350,9 @@
   border-radius: 1.5rem;
   cursor: pointer;
   z-index: 1;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+  border: 1px solid #e2e8f0;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .gharsh-card::before {
@@ -363,8 +362,8 @@
   border-radius: 1.5rem;
   background: linear-gradient(135deg, #800000 0%, #F59E0B 50%, #D97706 100%);
   z-index: -2;
-  opacity: 0.25;
-  transition: opacity 0.4s ease, transform 0.6s ease;
+  opacity: 0.2;
+  transition: opacity 0.4s ease;
 }
 
 .gharsh-card::after {
@@ -372,16 +371,18 @@
   z-index: -1;
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(128, 0, 0, 0.3) 0%, rgba(245, 158, 11, 0.35) 100%);
-  filter: blur(15px);
+  background: linear-gradient(135deg, rgba(128, 0, 0, 0.35) 0%, rgba(245, 158, 11, 0.4) 100%);
+  filter: blur(16px);
   border-radius: 1.5rem;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .gharsh-card:hover {
+  background: linear-gradient(135deg, #800000 0%, #900000 60%, #C2410C 100%) !important;
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 35px -10px rgba(128, 0, 0, 0.15);
+  box-shadow: 0 20px 35px -10px rgba(128, 0, 0, 0.4);
+  border-color: transparent;
 }
 
 .gharsh-card:hover::before {
