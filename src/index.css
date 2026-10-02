@@ -336,3 +336,54 @@
 }
 
 
+
+/* -------------------------------------------------------------
+   UIVERSE CARD HOVER ANIMATION (by gharsh11032000 - Maroon & Gold Theme)
+   ------------------------------------------------------------- */
+.gharsh-card {
+  position: relative;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  z-index: 1;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.gharsh-card::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  margin: auto;
+  border-radius: 1.75rem;
+  background: linear-gradient(-45deg, #800000 0%, #F59E0B 50%, #D97706 100%);
+  z-index: -2;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gharsh-card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #800000 0%, #F59E0B 50%, #D97706 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(18px);
+  border-radius: 1.5rem;
+  transition: filter 0.6s ease;
+  opacity: 0.7;
+}
+
+.gharsh-card:hover::after {
+  filter: blur(30px);
+  opacity: 1;
+}
+
+.gharsh-card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}

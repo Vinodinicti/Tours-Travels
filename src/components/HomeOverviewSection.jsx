@@ -185,20 +185,21 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             </p>
           </div>
 
-          {/* Clean List Overview */}
-          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md max-w-4xl mx-auto space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-slate-800 font-medium">
-              {FEATURED_DESTINATIONS_PER_DAY.slice(0, 3).map((dest) => (
-                <div key={dest.id} className="space-y-1.5 p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                  <h4 className="font-serif text-base font-extrabold text-slate-900">{dest.name}</h4>
-                  <p className="text-gray-500 text-[11px] leading-snug">{dest.short}</p>
-                  <div className="pt-2 flex items-center justify-between border-t border-slate-200/60">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase">Tariff:</span>
-                    <span className="font-extrabold text-[#800000]">₹{dest.perDayPrice.toLocaleString()} / day</span>
-                  </div>
+          {/* gharsh11032000 Uiverse Hover Card Grid (Maroon & Gold Theme) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto py-2">
+            {FEATURED_DESTINATIONS_PER_DAY.slice(0, 3).map((dest) => (
+              <div key={dest.id} className="gharsh-card">
+                <div className="space-y-2">
+                  <h3 className="font-serif text-lg font-extrabold text-slate-900 leading-snug">{dest.name}</h3>
+                  <p className="text-gray-600 text-xs font-medium leading-relaxed">{dest.short}</p>
                 </div>
-              ))}
-            </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">TARIFF:</span>
+                  <span className="font-serif text-base font-extrabold text-[#800000]">₹{dest.perDayPrice.toLocaleString()} / day</span>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="text-center">
