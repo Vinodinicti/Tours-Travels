@@ -118,23 +118,27 @@ const CustomerReviewsMarquee = () => {
               </div>
 
               {/* Passenger Info & Tour Tag */}
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                <div className="flex items-center space-x-2.5 min-w-0">
-                  <div className={`w-9 h-9 rounded-full ${item.avatarBg} font-extrabold text-xs flex items-center justify-center shadow-xs shrink-0`}>
-                    {item.initials}
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="font-serif text-xs sm:text-sm font-extrabold text-[#1E293B] flex items-center gap-1">
-                      <span className="truncate max-w-[130px] sm:max-w-none">{item.name}</span>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    </h4>
-                    <span className="text-[10px] font-bold text-gray-400 block truncate">{item.location}</span>
+              <div className="pt-3 border-t border-slate-100 space-y-2">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center space-x-2.5">
+                    <div className={`w-9 h-9 rounded-full ${item.avatarBg} font-extrabold text-xs flex items-center justify-center shadow-xs shrink-0`}>
+                      {item.initials}
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-xs sm:text-sm font-extrabold text-[#1E293B] flex items-center gap-1.5 flex-wrap">
+                        <span>{item.name}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 inline" />
+                      </h4>
+                      <span className="text-[10px] font-bold text-gray-400 block">{item.location}</span>
+                    </div>
                   </div>
                 </div>
 
-                <span className="px-2.5 py-1 rounded-full bg-amber-50 text-[#800000] text-[10px] font-extrabold border border-amber-200 shrink-0 text-right">
-                  {item.tour}
-                </span>
+                <div className="pt-1">
+                  <span className="px-2.5 py-1 rounded-full bg-amber-50 text-[#800000] text-[10px] font-extrabold border border-amber-200 inline-block">
+                    {item.tour}
+                  </span>
+                </div>
               </div>
 
             </div>
