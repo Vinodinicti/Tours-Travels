@@ -8,7 +8,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
     <div className="space-y-0">
       
       {/* -------------------------------------------------------------
-         SECTION 1: FLEET OVERVIEW - NEAT EDITORIAL TEXT LAYOUT
+         SECTION 1: FLEET OVERVIEW - CARDS WITH VEHICLE IMAGES
          ------------------------------------------------------------- */}
       <section className="py-14 bg-uiverse-rain relative overflow-hidden text-[#1E293B]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
@@ -25,20 +25,23 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             </p>
           </div>
 
-          {/* Clean Editorial Text Columns (No Heavy Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto bg-white/90 backdrop-blur-md rounded-3xl p-8 border border-slate-200 shadow-lg">
+          {/* Fleet Specifications Cards with Bus Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            <div className="space-y-3 border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-8">
-              <span className="text-xs font-extrabold text-[#800000] uppercase tracking-wider block">
-                VOLVO 2+1 AC SLEEPER
-              </span>
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-slate-200 shadow-lg space-y-4 hover:shadow-xl transition-all">
+              <div className="relative h-44 rounded-2xl overflow-hidden">
+                <img src="/bus-1.jpg" alt="Volvo 2+1 AC Sleeper Coach" className="w-full h-full object-cover" />
+                <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
+                  VOLVO 2+1 AC SLEEPER
+                </span>
+              </div>
               <h3 className="font-serif text-xl font-extrabold text-slate-900">
                 Individual Sanitized Sleeper Berths
               </h3>
               <p className="text-gray-600 text-xs font-medium leading-relaxed">
-                Spacious upper and lower berths equipped with individual reading lights, mobile charging ports, soft sanitized blankets, and individual privacy curtains for peaceful overnight travel.
+                Spacious upper and lower berths equipped with individual reading lights, mobile charging ports, soft blankets, and privacy curtains.
               </p>
-              <ul className="space-y-1.5 text-xs text-slate-700 font-bold pt-1">
+              <ul className="space-y-1 text-xs text-slate-700 font-bold pt-1">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#800000]" />
                   <span>Air-Suspension Highway Comfort</span>
@@ -50,17 +53,20 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
               </ul>
             </div>
 
-            <div className="space-y-3 md:pl-2">
-              <span className="text-xs font-extrabold text-[#D97706] uppercase tracking-wider block">
-                EXECUTIVE 2+2 RECLINER
-              </span>
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-slate-200 shadow-lg space-y-4 hover:shadow-xl transition-all">
+              <div className="relative h-44 rounded-2xl overflow-hidden">
+                <img src="/bus-2.jpg" alt="Executive 2+2 Recliner Coach" className="w-full h-full object-cover" />
+                <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#D97706] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
+                  EXECUTIVE 2+2 RECLINER
+                </span>
+              </div>
               <h3 className="font-serif text-xl font-extrabold text-slate-900">
                 Deep Reclining Executive Coach
               </h3>
               <p className="text-gray-600 text-xs font-medium leading-relaxed">
-                Ergonomic pushback seating with ample calf support, climate-controlled cabin AC, dual entertainment LED displays, and experienced long-distance highway captains.
+                Ergonomic pushback seating with ample calf support, climate-controlled cabin AC, dual LED displays, and experienced highway captains.
               </p>
-              <ul className="space-y-1.5 text-xs text-slate-700 font-bold pt-1">
+              <ul className="space-y-1 text-xs text-slate-700 font-bold pt-1">
                 <li className="flex items-center space-x-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D97706]" />
                   <span>Punctual Station Boarding</span>
@@ -96,7 +102,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
       <BusVideoShowcase onOpenBookingModal={onOpenBookingModal} />
 
       {/* -------------------------------------------------------------
-         SECTION 2: TOUR PACKAGES OVERVIEW - TEXT EDITORIAL LAYOUT
+         SECTION 2: TOUR PACKAGES OVERVIEW - CARDS WITH DESTINATION IMAGES
          ------------------------------------------------------------- */}
       <section className="py-14 relative overflow-hidden text-[#1E293B] bg-[#FFF8F6]">
         <div className="bg-uiverse-paper-maroon-overlay" />
@@ -114,20 +120,22 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             </p>
           </div>
 
-          {/* Editorial Text Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {/* Handcrafted Bus Tour Itineraries with Destination Images */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {BUS_TOUR_PACKAGES.slice(0, 2).map((pkg) => (
-              <div key={pkg.id} className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-amber-200 shadow-md space-y-3 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold text-[#800000] uppercase tracking-wider">
+              <div key={pkg.id} className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-amber-200 shadow-lg space-y-4 hover:shadow-xl transition-all flex flex-col justify-between">
+                <div>
+                  <div className="relative h-44 rounded-2xl overflow-hidden mb-3">
+                    <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
+                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-bold shadow-md">
                       {pkg.defaultDays} Days / {pkg.defaultDays - 1} Nights
                     </span>
-                    <span className="text-xs font-extrabold text-[#D97706] bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-extrabold shadow-md">
                       ₹{pkg.perDayPrice.toLocaleString()} / Day
                     </span>
                   </div>
-                  <h3 className="font-serif text-xl font-extrabold text-slate-900">{pkg.name}</h3>
+
+                  <h3 className="font-serif text-xl font-extrabold text-slate-900 mb-1">{pkg.name}</h3>
                   <p className="text-xs text-gray-600 font-medium leading-relaxed">
                     {pkg.placesCovered.join(' • ')}
                   </p>
@@ -214,4 +222,5 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
 };
 
 export default HomeOverviewSection;
+
 
