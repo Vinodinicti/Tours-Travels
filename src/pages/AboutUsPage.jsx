@@ -48,13 +48,13 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
           
           <div className="lg:col-span-6 relative h-[380px] sm:h-[440px] rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white">
             <img
-              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80"
-              alt="Highway Travel Experience"
+              src="/about-bus-15years.jpg"
+              alt="Sri Saranya Travels 15+ Years Highway Travel Experience"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md text-[#1E293B] shadow-lg border border-amber-200">
-              <span className="font-serif text-2xl font-extrabold text-[#800000]">10+ Years Experience</span>
+              <span className="font-serif text-2xl font-extrabold text-[#800000]">15+ Years Experience</span>
               <span className="text-xs font-bold block text-slate-700">Punctual Bus Tour Operations Across Tamil Nadu</span>
             </div>
           </div>
