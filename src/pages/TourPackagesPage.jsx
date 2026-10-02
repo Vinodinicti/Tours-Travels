@@ -57,14 +57,14 @@ const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 uiverse-cards-grid">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {BUS_TOUR_PACKAGES.map((pkg, idx) => (
             <motion.div
               key={pkg.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="uiverse-card-item rounded-[2.5rem] bg-white border border-slate-200 p-6 shadow-md hover:shadow-2xl hover:border-amber-300 transition-all space-y-4 flex flex-col justify-between overflow-hidden"
+              className="rounded-[2.5rem] bg-white border border-slate-200 p-6 shadow-md hover:shadow-xl hover:border-amber-400 hover:-translate-y-1.5 transition-all duration-300 space-y-4 flex flex-col justify-between overflow-hidden"
             >
               <div>
                 <div className="relative h-52 rounded-2xl overflow-hidden mb-4">
