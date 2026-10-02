@@ -26,19 +26,19 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
   };
 
   return (
-    <section className="py-8 sm:py-10 bg-gradient-to-b from-[#FAF9F5] to-white relative overflow-hidden text-[#1E293B]">
+    <section className="py-6 sm:py-8 bg-gradient-to-b from-[#FAF9F5] to-white relative overflow-hidden text-[#1E293B]">
       
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-40" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="px-4 py-1 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest inline-block shadow-xs">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="px-3.5 py-1 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-[11px] font-extrabold uppercase tracking-widest inline-block shadow-xs">
             VIRTUAL VIDEO TOUR
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#1E293B] tracking-tight">
             Experience Our <span className="text-[#800000] italic">Luxury Bus Journey</span>
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm font-medium">
@@ -46,8 +46,8 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
           </p>
         </div>
 
-        {/* Video Player Box - Responsive for Mobile & Desktop */}
-        <div className="relative max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden border-2 border-amber-300 shadow-2xl bg-slate-950 aspect-video group">
+        {/* Compact Video Player Box - Reduced Size */}
+        <div className="relative max-w-2xl sm:max-w-3xl mx-auto rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-slate-950 aspect-video group">
           
           <video
             ref={videoRef}
