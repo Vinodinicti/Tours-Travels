@@ -296,6 +296,30 @@
   animation: roadLineMove 1s linear infinite;
 }
 
+/* -------------------------------------------------------------
+   UIVERSE CARD HOVER FOCUS-BLUR ANIMATION (by Thomasfadi)
+   ------------------------------------------------------------- */
+.uiverse-cards-grid {
+  transition: all 400ms ease;
+}
+
+.uiverse-card-item {
+  cursor: pointer;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, filter, opacity;
+}
+
+.uiverse-card-item:hover {
+  transform: scale(1.04) translateY(-6px) !important;
+  z-index: 20;
+}
+
+.uiverse-cards-grid:hover > .uiverse-card-item:not(:hover) {
+  filter: blur(6px);
+  transform: scale(0.95) !important;
+  opacity: 0.65;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -310,4 +334,5 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #8B1E1E;
 }
+
 

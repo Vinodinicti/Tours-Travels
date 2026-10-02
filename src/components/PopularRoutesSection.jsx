@@ -21,8 +21,8 @@ const PopularRoutesSection = ({ onOpenBookingModal }) => {
           </p>
         </div>
 
-        {/* Featured Destinations Grid (7 Destinations with Per Day Pricing) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Featured Destinations Grid with Uiverse Card Animation */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 uiverse-cards-grid">
           {FEATURED_DESTINATIONS_PER_DAY.map((dest, idx) => (
             <motion.div
               key={dest.id}
@@ -30,7 +30,7 @@ const PopularRoutesSection = ({ onOpenBookingModal }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="group rounded-[2.5rem] bg-white border-2 border-amber-200/80 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="uiverse-card-item group rounded-[2.5rem] bg-white border-2 border-amber-200/80 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               <div>
                 {/* Image Header with Uploaded Bus Images */}

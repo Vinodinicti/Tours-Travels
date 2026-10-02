@@ -77,15 +77,15 @@ const DestinationsPage = ({ onSelectDestination }) => {
           <Search className="w-5 h-5 text-[#800000] absolute left-5 top-1/2 -translate-y-1/2" />
         </div>
 
-        {/* 7 Destinations White Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 7 Destinations White Cards Grid with Uiverse Focus-Blur Animation */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 uiverse-cards-grid">
           {filteredDestinations.map((dest, idx) => (
             <motion.div
               key={dest.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="rounded-[2.5rem] bg-white border border-slate-200 shadow-md hover:shadow-2xl hover:border-amber-300 hover:-translate-y-2 transition-all space-y-4 flex flex-col justify-between overflow-hidden"
+              className="uiverse-card-item rounded-[2.5rem] bg-white border border-slate-200 shadow-md hover:shadow-2xl hover:border-amber-300 transition-all space-y-4 flex flex-col justify-between overflow-hidden"
             >
               <div>
                 <div className="relative h-56 rounded-t-[2.5rem] overflow-hidden">
