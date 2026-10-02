@@ -57,7 +57,63 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
   ];
 
   return (
-    <footer className="bg-white text-slate-800 pt-10 pb-6 border-t-2 border-slate-200 relative overflow-hidden">
+    <footer className="bg-white text-slate-800 pt-0 pb-6 border-t-2 border-slate-200 relative overflow-hidden">
+      
+      {/* Moving Bus on Road Animation Banner at Top of Footer */}
+      <div className="w-full bg-[#0F172A] border-b-2 border-amber-400 relative overflow-hidden h-14 flex items-center shadow-md mb-8">
+        {/* Road Asphalt Pattern */}
+        <div className="absolute inset-0 bg-slate-900 opacity-90" />
+        
+        {/* Animated Dashed Center Line */}
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-1 bg-dashed-road opacity-80 pointer-events-none" />
+
+        {/* Road Curb Lines */}
+        <div className="absolute inset-x-0 top-0 h-1 bg-amber-500 opacity-80" />
+        <div className="absolute inset-x-0 bottom-0 h-1 bg-slate-700 opacity-80" />
+
+        {/* Moving Luxury Bus Container */}
+        <div className="animate-bus-drive absolute left-0 bottom-1 flex items-center z-10 pointer-events-none">
+          {/* Headlight Beam Cone */}
+          <div className="absolute left-[145px] top-2 w-20 h-7 bg-gradient-to-r from-amber-300/40 via-amber-200/20 to-transparent blur-[1px] rounded-r-full pointer-events-none" />
+
+          {/* Detailed SVG Volvo Luxury Bus */}
+          <div className="animate-bus-bounce relative flex items-center">
+            <svg className="w-36 h-11 drop-shadow-lg" viewBox="0 0 170 50" fill="none">
+              {/* Main Maroon Bus Chassis */}
+              <path d="M 12 14 Q 12 8 22 8 L 148 8 Q 160 8 164 18 L 167 32 Q 169 40 160 42 L 12 42 Z" fill="url(#footerBusGrad)" />
+              {/* Roof AC Unit */}
+              <rect x="55" y="4" width="45" height="4" rx="2" fill="#D97706" />
+              {/* Windows */}
+              <rect x="22" y="13" width="22" height="12" rx="2" fill="#38BDF8" opacity="0.85" />
+              <rect x="48" y="13" width="22" height="12" rx="2" fill="#38BDF8" opacity="0.85" />
+              <rect x="74" y="13" width="22" height="12" rx="2" fill="#38BDF8" opacity="0.85" />
+              <rect x="100" y="13" width="22" height="12" rx="2" fill="#38BDF8" opacity="0.85" />
+              {/* Front Windshield */}
+              <path d="M 126 13 L 148 13 Q 155 13 158 20 L 158 27 L 126 27 Z" fill="#E0F2FE" opacity="0.95" />
+              {/* Gold Accent Stripe */}
+              <rect x="12" y="29" width="150" height="4" fill="#F59E0B" />
+              <text x="52" y="38" fill="#FFFFFF" fontSize="6.5" fontWeight="900" fontFamily="sans-serif" letterSpacing="0.8">SRI SARANYA LUXURY</text>
+              {/* Headlight */}
+              <circle cx="162" cy="35" r="3" fill="#FEF08A" />
+              {/* Taillight */}
+              <rect x="12" y="32" width="3" height="6" fill="#EF4444" rx="1" />
+              {/* Spinning Wheels */}
+              <circle cx="36" cy="42" r="6.5" fill="#0F172A" stroke="#CBD5E1" strokeWidth="2" />
+              <circle cx="36" cy="42" r="2.5" fill="#F59E0B" />
+              <circle cx="132" cy="42" r="6.5" fill="#0F172A" stroke="#CBD5E1" strokeWidth="2" />
+              <circle cx="132" cy="42" r="2.5" fill="#F59E0B" />
+
+              <defs>
+                <linearGradient id="footerBusGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#800000" />
+                  <stop offset="60%" stopColor="#990000" />
+                  <stop offset="100%" stopColor="#B30000" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
       
       {/* Background Subtle Pattern */}
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-40" />
@@ -154,10 +210,10 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
             <h4 className="font-serif text-sm font-extrabold text-slate-900 border-b border-amber-300 pb-1.5 inline-block">
               Top Locations
             </h4>
-            <ul className="space-y-1 text-xs font-semibold text-gray-600">
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-700">
               {CLIENT_BUS_INFO.locations.slice(0, 6).map((loc) => (
-                <li key={loc} className="flex items-center space-x-1">
-                  <span className="text-[#800000]">📍</span>
+                <li key={loc} className="flex items-center space-x-1.5 hover:text-[#800000] transition-colors">
+                  <span className="text-[#800000] text-xs font-extrabold">›</span>
                   <span>{loc}</span>
                 </li>
               ))}
@@ -166,22 +222,26 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
 
           {/* Contact Details & Helplines */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-sm font-extrabold text-slate-900 border-b border-amber-300 pb-1.5 inline-block">
-              24/7 Helpline
-            </h4>
+            <div className="flex items-center space-x-2 border-b border-amber-300 pb-1.5 inline-flex">
+              <Phone className="w-4 h-4 text-[#800000]" />
+              <h4 className="font-serif text-sm font-extrabold text-slate-900">
+                24/7 Helpline
+              </h4>
+            </div>
             <div className="space-y-2 text-xs text-slate-700 font-medium">
-              <div className="flex items-start space-x-2">
-                <Phone className="w-4 h-4 text-[#800000] shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  {CLIENT_BUS_INFO.phones.map((p, i) => (
-                    <a key={i} href={`tel:${CLIENT_BUS_INFO.rawPhones[i]}`} className="block hover:text-[#800000] transition-colors font-extrabold text-slate-900 text-xs">
-                      📞 {p}
-                    </a>
-                  ))}
-                </div>
+              <div className="space-y-1.5 pl-0.5">
+                {CLIENT_BUS_INFO.phones.map((p, i) => (
+                  <a 
+                    key={i} 
+                    href={`tel:${CLIENT_BUS_INFO.rawPhones[i]}`} 
+                    className="block hover:text-[#800000] transition-colors font-extrabold text-slate-900 text-xs tracking-wide"
+                  >
+                    {p}
+                  </a>
+                ))}
               </div>
 
-              <div className="flex items-center space-x-2 pt-0.5">
+              <div className="flex items-center space-x-2 pt-1 border-t border-slate-100">
                 <Mail className="w-3.5 h-3.5 text-[#800000] shrink-0" />
                 <a href={`mailto:${CLIENT_BUS_INFO.email}`} className="hover:text-[#800000] transition-colors font-bold text-slate-800 text-[11px]">
                   {CLIENT_BUS_INFO.email}
