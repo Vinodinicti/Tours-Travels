@@ -12,7 +12,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
     const timer = setInterval(() => {
       setActiveCardIndex((prev) => (prev + 1) % BUS_TOUR_PACKAGES.length);
-    }, 3500);
+    }, 1600);
 
     return () => clearInterval(timer);
   }, [isPaused]);
@@ -26,30 +26,30 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
   };
 
   return (
-    /* Distinct Section Theme 2: Warm Sunset Rose & Maroon Background */
-    <section className="py-10 bg-gradient-to-b from-[#FFF5F5] via-[#FEF2F2] to-[#FFF8F6] text-[#1E293B] relative overflow-hidden">
+    /* Compact Distinct Section Theme: Warm Sunset Rose & Maroon Background */
+    <section className="py-6 sm:py-8 bg-gradient-to-b from-[#FFF5F5] via-[#FEF2F2] to-[#FFF8F6] text-[#1E293B] relative overflow-hidden">
       
       {/* Decorative Blur */}
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-rose-200/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-rose-200/40 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
-          <span className="px-4 py-1.5 rounded-full bg-rose-100 text-[#800000] text-xs font-bold uppercase tracking-wider inline-block border border-rose-200 shadow-sm">
-            AUTO-CHANGING 3D STACKED CARDS
+        <div className="text-center max-w-2xl mx-auto mb-5 space-y-2">
+          <span className="px-3.5 py-1 rounded-full bg-rose-100 text-[#800000] text-[11px] font-extrabold uppercase tracking-wider inline-block border border-rose-200 shadow-xs">
+            1.6s AUTO-ROTATING PACKAGES
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#1E293B] tracking-tight">
             Tamil Nadu <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#800000] via-[#8B1E1E] to-[#F59E0B] italic">Bus Tour Packages</span>
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base font-medium">
-            Tour packages change automatically. Hover or use controls to swap manually.
+          <p className="text-gray-600 text-xs sm:text-sm font-medium">
+            Compact 3D tour cards rotate automatically every 1.6s. Hover or tap controls to swap.
           </p>
         </div>
 
-        {/* 3D Swap Card Stack Container */}
+        {/* Compact 3D Swap Card Stack Container */}
         <div 
-          className="relative h-[480px] max-w-3xl mx-auto flex items-center justify-center"
+          className="relative h-[390px] sm:h-[410px] max-w-xl mx-auto flex items-center justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -63,50 +63,50 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
               return (
                 <motion.div
                   key={pkg.id}
-                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  initial={{ opacity: 0, scale: 0.85, y: 35 }}
                   animate={{
-                    opacity: isFront ? 1 : isSecond ? 0.8 : 0.5,
-                    scale: isFront ? 1 : isSecond ? 0.92 : 0.84,
-                    y: isFront ? 0 : isSecond ? 25 : 50,
+                    opacity: isFront ? 1 : isSecond ? 0.8 : 0.45,
+                    scale: isFront ? 1 : isSecond ? 0.93 : 0.86,
+                    y: isFront ? 0 : isSecond ? 18 : 36,
                     zIndex: BUS_TOUR_PACKAGES.length - position,
                   }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className={`absolute w-full max-w-2xl rounded-[2.5rem] bg-white border-2 shadow-2xl p-6 sm:p-10 flex flex-col justify-between ${
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className={`absolute w-full max-w-lg rounded-3xl bg-white border-2 shadow-xl p-4 sm:p-5 flex flex-col justify-between ${
                     isFront ? 'border-[#800000] shadow-glow-maroon' : 'border-rose-200'
                   }`}
                   style={{ top: 0 }}
                 >
                   <div>
-                    {/* Image Header */}
-                    <div className="relative h-48 rounded-2xl overflow-hidden mb-5">
+                    {/* Compact Image Header */}
+                    <div className="relative h-40 sm:h-44 rounded-2xl overflow-hidden mb-3.5">
                       <img
                         src={pkg.image}
                         alt={pkg.name}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                       
-                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-bold shadow-md">
+                      <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-[#800000] text-white text-[11px] font-extrabold shadow-md">
                         {pkg.duration}
                       </span>
 
-                      <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-white text-[#800000] text-xs font-extrabold shadow-md">
+                      <span className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-white text-[#800000] text-[11px] font-extrabold shadow-md">
                         {pkg.startingFare} / Person
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl font-bold text-[#1E293B] mb-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-extrabold text-[#1E293B] mb-1 leading-snug">
                       {pkg.name}
                     </h3>
 
-                    <p className="text-xs text-[#800000] font-extrabold mb-3 flex items-center gap-1">
+                    <p className="text-[11px] text-[#800000] font-extrabold mb-2.5 flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-[#F59E0B]" />
                       <span>{pkg.busDetail}</span>
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1.5 mb-2">
                       {pkg.placesCovered.map((place, i) => (
-                        <span key={i} className="px-2.5 py-1 rounded-md bg-rose-50 text-xs font-bold text-slate-800 border border-rose-200">
+                        <span key={i} className="px-2 py-0.5 rounded-md bg-rose-50 text-[11px] font-bold text-slate-800 border border-rose-200">
                           {place}
                         </span>
                       ))}
@@ -114,16 +114,16 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-gray-500 font-bold">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-gray-500 font-extrabold">
                       Package {activeCardIndex + 1} of {BUS_TOUR_PACKAGES.length}
                     </span>
 
                     <button
                       onClick={() => onOpenBookingModal(pkg.name)}
-                      className="px-6 py-2.5 bg-gradient-maroon-gold text-white font-extrabold rounded-xl text-xs shadow-glow-maroon hover:scale-105 transition-all flex items-center space-x-1.5"
+                      className="px-5 py-2 bg-gradient-maroon-gold text-white font-extrabold rounded-xl text-[11px] shadow-glow-maroon hover:scale-105 transition-all flex items-center space-x-1.5"
                     >
-                      <Send className="w-3.5 h-3.5" />
+                      <Send className="w-3 h-3 text-[#FBBF24]" />
                       <span>Book Tour Package</span>
                     </button>
                   </div>
@@ -135,25 +135,25 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
         </div>
 
-        {/* Swap Controls with Active Indicators */}
-        <div className="flex flex-col items-center justify-center space-y-3 mt-8">
-          <div className="flex items-center justify-center space-x-4">
+        {/* Swap Controls with Indicators */}
+        <div className="flex flex-col items-center justify-center space-y-2 mt-4">
+          <div className="flex items-center justify-center space-x-3">
             <button
               onClick={handlePrevSwap}
-              className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
               aria-label="Previous 3D Card"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Pagination Indicators */}
-            <div className="flex items-center space-x-2 px-3 py-2 rounded-full bg-white border border-rose-200 shadow-sm">
+            <div className="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white border border-rose-200 shadow-xs">
               {BUS_TOUR_PACKAGES.map((_, dotIdx) => (
                 <button
                   key={dotIdx}
                   onClick={() => setActiveCardIndex(dotIdx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeCardIndex === dotIdx ? 'w-7 bg-[#800000]' : 'w-2.5 bg-rose-200 hover:bg-rose-400'
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activeCardIndex === dotIdx ? 'w-6 bg-[#800000]' : 'w-2 bg-rose-200 hover:bg-rose-400'
                   }`}
                   aria-label={`Go to slide ${dotIdx + 1}`}
                 />
@@ -165,12 +165,12 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
               className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
               aria-label="Next 3D Card"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 
-          <span className="text-xs font-extrabold text-slate-600 tracking-wider uppercase flex items-center gap-1.5">
-            <Layers className="w-4 h-4 text-[#800000]" /> Auto-Rotating Cards • Tap or Hover to Control
+          <span className="text-[11px] font-extrabold text-slate-500 tracking-wider uppercase flex items-center gap-1.5">
+            <Layers className="w-3.5 h-3.5 text-[#800000]" /> 1.6s Auto-Rotation • Hover to Pause
           </span>
         </div>
 
