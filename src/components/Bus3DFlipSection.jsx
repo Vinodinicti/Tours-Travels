@@ -1,18 +1,68 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 import { Wifi, ShieldCheck, CheckCircle2, RotateCw, ArrowRight, Sparkles } from 'lucide-react';
 import { BUS_FLEET_3D } from '../data/busData';
 
 const Bus3DFlipSection = ({ onOpenBookingModal }) => {
   const [flippedCards, setFlippedCards] = useState({});
+  const [isPaused, setIsPaused] = useState(false);
+  const timerMapRef = useRef({});
 
+  // Toggle flip manually or programmatically, auto-flipping back after 4 seconds
   const toggleFlip = (id) => {
-    setFlippedCards((prev) => ({ ...prev, [id]: !prev[id] }));
+    setFlippedCards((prev) => {
+      const isCurrentlyFlipped = !!prev[id];
+      const nextState = !isCurrentlyFlipped;
+
+      // Clear any pending timer for this card
+      if (timerMapRef.current[id]) {
+        clearTimeout(timerMapRef.current[id]);
+        timerMapRef.current[id] = null;
+      }
+
+      // If flipping to back (true), automatically flip back to front after 4 seconds
+      if (nextState) {
+        timerMapRef.current[id] = setTimeout(() => {
+          setFlippedCards((curr) => ({ ...curr, [id]: false }));
+          timerMapRef.current[id] = null;
+        }, 4000);
+      }
+
+      return { ...prev, [id]: nextState };
+    });
   };
+
+  // Automatic showcase flip sequence across cards every 4.5 seconds when not hovered
+  useEffect(() => {
+    if (isPaused) return;
+
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      const busId = BUS_FLEET_3D[currentIndex]?.id;
+      if (busId) {
+        toggleFlip(busId);
+      }
+      currentIndex = (currentIndex + 1) % BUS_FLEET_3D.length;
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Clean up timers on unmount
+  useEffect(() => {
+    return () => {
+      Object.values(timerMapRef.current).forEach((t) => {
+        if (t) clearTimeout(t);
+      });
+    };
+  }, []);
 
   return (
     /* Distinct Section Theme 1: Cool Mint & Pearl Background */
-    <section className="py-10 bg-gradient-to-b from-[#F0FDF4] via-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] relative overflow-hidden">
+    <section 
+      className="py-10 bg-gradient-to-b from-[#F0FDF4] via-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] relative overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       
       {/* Decorative Blob */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -28,7 +78,7 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
             Our Luxury <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#800000] via-[#8B1E1E] to-[#F59E0B] italic">Bus Fleet</span>
           </h2>
           <p className="text-gray-600 text-base font-medium">
-            Click or tap any bus card below to view berth layouts, onboard amenities, and seat fares.
+            Click or tap any bus card below to view berth layouts & amenities — cards automatically flip back after 4s.
           </p>
         </div>
 
@@ -102,7 +152,9 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
                         <span className="text-xs font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1">
                           <Sparkles className="w-4 h-4 text-[#F59E0B]" /> Amenities & Layout
                         </span>
-                        <span className="text-xs text-gray-500 font-bold">Tap to Flip Back</span>
+                        <span className="text-[11px] text-[#800000] font-extrabold bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">
+                          Auto-flips back in 4s
+                        </span>
                       </div>
 
                       <h4 className="font-serif text-lg font-bold text-[#1E293B]">
