@@ -124,6 +124,7 @@ function App() {
             <HomeOverviewSection
               setActivePage={setActivePage}
               onOpenBookingModal={handleOpenBooking}
+              packagesList={packagesList}
             />
 
             {/* 3. Passenger Reviews Running Marquee Ticker (Home Page Only) */}
@@ -150,6 +151,7 @@ function App() {
           <TourPackagesPage
             onViewPackageDetails={(pkg) => handleOpenBooking(pkg.name)}
             onOpenEnquiry={(pkgName) => handleOpenBooking(pkgName)}
+            packagesList={packagesList}
           />
         )}
 

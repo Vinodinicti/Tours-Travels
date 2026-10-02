@@ -4,7 +4,7 @@ import { Bus, CheckCircle2, Send } from 'lucide-react';
 import { BUS_TOUR_PACKAGES } from '../data/busData';
 import BusSwapCardsSection from '../components/BusSwapCardsSection';
 
-const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
+const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry, packagesList = BUS_TOUR_PACKAGES }) => {
   return (
     <div className="bg-uiverse-dots min-h-screen text-[#1E293B] relative overflow-hidden">
       
@@ -44,7 +44,7 @@ const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
       {/* -------------------------------------------------------------
          3D INTERACTIVE STACKED SWAP CARDS SECTION (FOR TOUR PACKAGES)
          ------------------------------------------------------------- */}
-      <BusSwapCardsSection onOpenBookingModal={onOpenEnquiry} />
+      <BusSwapCardsSection onOpenBookingModal={onOpenEnquiry} packagesList={packagesList} />
 
       {/* Full Detailed Package Breakdown Cards List */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
@@ -58,7 +58,7 @@ const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {BUS_TOUR_PACKAGES.map((pkg, idx) => (
+          {packagesList.map((pkg, idx) => (
             <motion.div
               key={pkg.id}
               initial={{ opacity: 0, y: 20 }}

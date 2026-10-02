@@ -3,26 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, Layers, ChevronRight, ChevronLeft, Send } from 'lucide-react';
 import { BUS_TOUR_PACKAGES } from '../data/busData';
 
-const BusSwapCardsSection = ({ onOpenBookingModal }) => {
+const BusSwapCardsSection = ({ onOpenBookingModal, packagesList = BUS_TOUR_PACKAGES }) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
+  const list = packagesList && packagesList.length > 0 ? packagesList : BUS_TOUR_PACKAGES;
 
   useEffect(() => {
     if (isPaused) return;
 
     const timer = setInterval(() => {
-      setActiveCardIndex((prev) => (prev + 1) % BUS_TOUR_PACKAGES.length);
+      setActiveCardIndex((prev) => (prev + 1) % list.length);
     }, 1600);
 
     return () => clearInterval(timer);
-  }, [isPaused]);
+  }, [isPaused, list.length]);
 
   const handleNextSwap = () => {
-    setActiveCardIndex((prev) => (prev + 1) % BUS_TOUR_PACKAGES.length);
+    setActiveCardIndex((prev) => (prev + 1) % list.length);
   };
 
   const handlePrevSwap = () => {
-    setActiveCardIndex((prev) => (prev - 1 + BUS_TOUR_PACKAGES.length) % BUS_TOUR_PACKAGES.length);
+    setActiveCardIndex((prev) => (prev - 1 + list.length) % list.length);
   };
 
   return (
@@ -55,8 +57,8 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
         >
           
           <AnimatePresence mode="popLayout">
-            {BUS_TOUR_PACKAGES.map((pkg, idx) => {
-              const position = (idx - activeCardIndex + BUS_TOUR_PACKAGES.length) % BUS_TOUR_PACKAGES.length;
+            {list.map((pkg, idx) => {
+              const position = (idx - activeCardIndex + list.length) % list.length;
               const isFront = position === 0;
               const isSecond = position === 1;
 
@@ -68,7 +70,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
                     opacity: isFront ? 1 : isSecond ? 0.8 : 0.45,
                     scale: isFront ? 1 : isSecond ? 0.93 : 0.86,
                     y: isFront ? 0 : isSecond ? 18 : 36,
-                    zIndex: BUS_TOUR_PACKAGES.length - position,
+                    zIndex: list.length - position,
                   }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className={`absolute w-full max-w-lg rounded-3xl bg-white border-2 shadow-xl p-4 sm:p-5 flex flex-col justify-between ${
@@ -116,7 +118,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
                   {/* Actions */}
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] text-gray-500 font-extrabold">
-                      Package {activeCardIndex + 1} of {BUS_TOUR_PACKAGES.length}
+                      Package {activeCardIndex + 1} of {list.length}
                     </span>
 
                     <button
@@ -148,7 +150,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
             {/* Pagination Indicators */}
             <div className="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white border border-rose-200 shadow-xs">
-              {BUS_TOUR_PACKAGES.map((_, dotIdx) => (
+              {list.map((_, dotIdx) => (
                 <button
                   key={dotIdx}
                   onClick={() => setActiveCardIndex(dotIdx)}
