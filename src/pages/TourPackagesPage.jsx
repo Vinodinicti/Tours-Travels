@@ -15,7 +15,7 @@ const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: SAME SPACIOUS SIZE & VISIBLE IMAGE AS HOME HERO
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[75vh] flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
+      <div className="relative min-h-[50vh] flex items-center justify-center pt-20 pb-12 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="/bus-7.png"
@@ -46,7 +46,7 @@ const TourPackagesPage = ({ onViewPackageDetails, onOpenEnquiry }) => {
       <BusSwapCardsSection onOpenBookingModal={onOpenEnquiry} />
 
       {/* Full Detailed Package Breakdown Cards List */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-2 mb-8 bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-amber-200 shadow-sm">
           <h2 className="font-serif text-3xl font-extrabold text-[#1E293B]">
             All Tour Package Details & Tariff

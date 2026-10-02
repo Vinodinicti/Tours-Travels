@@ -5,11 +5,11 @@ import { FEATURED_DESTINATIONS_PER_DAY, CLIENT_BUS_INFO } from '../data/busData'
 
 const PopularRoutesSection = ({ onOpenBookingModal }) => {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#FFFDF5] via-[#FFFBEB] to-[#F8FAFC] text-[#1E293B] relative overflow-hidden">
+    <section className="py-10 bg-gradient-to-b from-[#FFFDF5] via-[#FFFBEB] to-[#F8FAFC] text-[#1E293B] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
           <span className="px-4 py-1.5 rounded-full bg-amber-100 text-[#D97706] text-xs font-bold uppercase tracking-wider inline-block border border-amber-200">
             Featured Tour Destinations & Per-Day Tariff
           </span>

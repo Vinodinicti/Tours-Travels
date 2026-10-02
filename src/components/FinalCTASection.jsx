@@ -4,7 +4,7 @@ import { Send, PhoneCall, Plane, Sparkles, Compass } from 'lucide-react';
 
 const FinalCTASection = ({ onOpenEnquiry, setActivePage }) => {
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-coral-peach text-white">
+    <section className="py-10 relative overflow-hidden bg-gradient-coral-peach text-white">
       
       {/* Decorative animated background elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-coral-dark/30 via-transparent to-peach-dark/30" />

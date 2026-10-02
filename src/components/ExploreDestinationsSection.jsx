@@ -7,7 +7,7 @@ const ExploreDestinationsSection = ({ onSelectDestination, setActivePage }) => {
   const featuredDestinations = DESTINATIONS.slice(0, 6);
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-warm-soft">
+    <section className="py-10 relative overflow-hidden bg-gradient-warm-soft">
       {/* Background blobs */}
       <div className="absolute top-1/4 -right-20 w-80 h-80 bg-peach/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-20 w-80 h-80 bg-cream/30 rounded-full blur-3xl pointer-events-none" />
@@ -15,7 +15,7 @@ const ExploreDestinationsSection = ({ onSelectDestination, setActivePage }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-6">
           <div className="space-y-3">
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-peach/20 text-coral text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />

@@ -26,12 +26,12 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#FAF9F5] to-white relative overflow-hidden text-[#1E293B]">
+    <section className="py-8 sm:py-10 bg-gradient-to-b from-[#FAF9F5] to-white relative overflow-hidden text-[#1E293B]">
       
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-40" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-5">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">

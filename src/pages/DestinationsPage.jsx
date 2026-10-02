@@ -37,7 +37,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: SAME SPACIOUS SIZE & VISIBLE IMAGE AS HOME HERO
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[75vh] flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
+      <div className="relative min-h-[50vh] flex items-center justify-center pt-20 pb-12 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80"
@@ -63,7 +63,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
       </div>
 
       {/* Main Content Area - White Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6 relative z-10">
 
         {/* Search Input Bar */}
         <div className="max-w-3xl mx-auto relative">

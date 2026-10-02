@@ -16,8 +16,8 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
          SECTION 1: FLEET OVERVIEW TEASER
          Uses Uiverse Animated Rain Background (by kish_3691)
          ------------------------------------------------------------- */}
-      <section className="pt-28 pb-20 bg-uiverse-rain relative overflow-hidden text-[#1E293B]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+      <section className="pt-12 pb-10 bg-uiverse-rain relative overflow-hidden text-[#1E293B]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-4 py-1.5 rounded-full bg-white text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-sm">
@@ -88,12 +88,12 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
          SECTION 2: TOUR PACKAGES OVERVIEW TEASER ("Handcrafted Bus Tour Itineraries")
          Uses Uiverse Geometric Paper Maroon Background (by AatreyuShau)
          ------------------------------------------------------------- */}
-      <section className="py-20 relative overflow-hidden text-[#1E293B] bg-[#FFF8F6]">
+      <section className="py-10 relative overflow-hidden text-[#1E293B] bg-[#FFF8F6]">
         {/* Uiverse Geometric Paper Maroon Pattern Overlay */}
         <div className="bg-uiverse-paper-maroon-overlay" />
         <div className="absolute inset-0 bg-pattern-dots pointer-events-none opacity-30 z-0" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-4 py-1.5 rounded-full bg-white text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-sm">
@@ -157,10 +157,10 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
       {/* -------------------------------------------------------------
          SECTION 3: TOP TAMIL NADU TRAVEL HUBS (LIGHT THEME FLOATING SPARKLE ANIMATION)
          ------------------------------------------------------------- */}
-      <section className="py-20 bg-uiverse-light-sparkles relative overflow-hidden text-[#1E293B]">
+      <section className="py-10 bg-uiverse-light-sparkles relative overflow-hidden text-[#1E293B]">
         <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-30" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="px-4 py-1.5 rounded-full bg-white text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-sm">

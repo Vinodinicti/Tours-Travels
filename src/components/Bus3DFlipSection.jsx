@@ -12,7 +12,7 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
 
   return (
     /* Distinct Section Theme 1: Cool Mint & Pearl Background */
-    <section className="py-24 bg-gradient-to-b from-[#F0FDF4] via-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] relative overflow-hidden">
+    <section className="py-10 bg-gradient-to-b from-[#F0FDF4] via-[#F8FAFC] to-[#F1F5F9] text-[#1E293B] relative overflow-hidden">
       
       {/* Decorative Blob */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
@@ -20,7 +20,7 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
           <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block border border-emerald-200">
             3D Interactive Bus Fleet
           </span>

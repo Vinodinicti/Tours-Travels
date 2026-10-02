@@ -69,12 +69,12 @@ const CustomerReviewsMarquee = () => {
   const marqueeItems = [...REVIEWS_DATA, ...REVIEWS_DATA];
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-[#FFFBF5] to-white relative overflow-hidden border-t border-slate-200 text-[#1E293B]">
+    <section className="py-8 sm:py-10 bg-gradient-to-b from-white via-[#FFFBF5] to-white relative overflow-hidden border-t border-slate-200 text-[#1E293B]">
       
       {/* Background Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-30" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 text-center space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-4 text-center space-y-3">
         <span className="px-4 py-1.5 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-xs">
           💬 Passenger Testimonials
         </span>

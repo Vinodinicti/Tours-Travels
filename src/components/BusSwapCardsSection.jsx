@@ -16,7 +16,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
   return (
     /* Distinct Section Theme 2: Warm Sunset Rose & Maroon Background */
-    <section className="py-24 bg-gradient-to-b from-[#FFF5F5] via-[#FEF2F2] to-[#FFF8F6] text-[#1E293B] relative overflow-hidden">
+    <section className="py-10 bg-gradient-to-b from-[#FFF5F5] via-[#FEF2F2] to-[#FFF8F6] text-[#1E293B] relative overflow-hidden">
       
       {/* Decorative Blur */}
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-rose-200/40 rounded-full blur-3xl pointer-events-none" />
@@ -24,7 +24,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
           <span className="px-4 py-1.5 rounded-full bg-rose-100 text-[#800000] text-xs font-bold uppercase tracking-wider inline-block border border-rose-200">
             3D Stack Card Swapper
           </span>

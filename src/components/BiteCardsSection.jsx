@@ -42,11 +42,11 @@ const BiteCardsSection = ({ setActivePage, onOpenEnquiry }) => {
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#FAF8EB] via-white to-[#FAF8EB] relative overflow-hidden">
+    <section className="py-10 bg-gradient-to-b from-[#FAF8EB] via-white to-[#FAF8EB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
           <span className="px-4 py-1.5 rounded-full bg-peach/20 text-coral text-xs font-bold uppercase tracking-wider inline-block">
             Bespoke Travel Choices
           </span>
