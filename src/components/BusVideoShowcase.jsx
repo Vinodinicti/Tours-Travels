@@ -35,8 +35,8 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="px-4 py-1.5 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-xs">
-            🎬 Virtual Video Tour
+          <span className="px-4 py-1 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest inline-block shadow-xs">
+            VIRTUAL VIDEO TOUR
           </span>
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
             Experience Our <span className="text-[#800000] italic">Luxury Bus Journey</span>

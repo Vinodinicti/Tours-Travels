@@ -35,27 +35,28 @@ const DestinationsPage = ({ onSelectDestination }) => {
       <div className="absolute top-1/3 -right-32 w-96 h-96 bg-amber-400/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
       {/* -------------------------------------------------------------
-         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE
+         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
+      <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80"
             alt="Tamil Nadu Famous Tour Destinations"
-            className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05]"
+            className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
           />
-          {/* Minimal 20% overlay - image is 100% bright & visible */}
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-white/95 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
-            Tamil Nadu Tour Destinations & Tariff
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
+          <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+            TAMIL NADU TOUR DESTINATIONS & TARIFF
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-2xl">
+
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
             Destinations & <span className="text-[#FBBF24] italic">Tour Booking</span>
           </h1>
+
           <p className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow">
             Explore top Tamil Nadu destinations with clear per-day bus tour pricing and automatic cost calculation.
           </p>
@@ -93,7 +94,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                   
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-bold shadow-md">
-                    📍 {dest.location}
+                    {dest.location}
                   </span>
 
                   <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-extrabold shadow-md">

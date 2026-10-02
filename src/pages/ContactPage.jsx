@@ -52,27 +52,28 @@ const ContactPage = () => {
       <div className="absolute top-1/4 -right-32 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
       {/* -------------------------------------------------------------
-         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE
+         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden text-white">
+      <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80"
             alt="Sri Saranya Travels 24/7 Helpline & Contact"
-            className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05]"
+            className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
           />
-          {/* Subtle minimal 20% overlay - image is 100% bright & visible */}
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-white/95 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
-            {CLIENT_BUS_INFO.name} • 24/7 Helpline
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
+          <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+            SRI SARANYA TRAVELS • 24/7 HELPLINE
           </span>
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-2xl">
+
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
             Contact Us & <span className="text-[#FBBF24] italic">Tour Reservation</span>
           </h1>
+
           <p className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow">
             "{CLIENT_BUS_INFO.slogan}" — Get in touch for instant automatic tour price estimation and bus booking.
           </p>
@@ -313,7 +314,7 @@ const ContactPage = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
             <div>
               <span className="px-3 py-1 rounded-full bg-amber-100 text-[#800000] text-[11px] font-extrabold uppercase tracking-wider inline-block mb-1">
-                📍 Head Office & Bus Depot Location
+                Head Office & Bus Depot Location
               </span>
               <h3 className="font-serif text-2xl font-extrabold text-[#1E293B]">
                 Visit Our Office in Coimbatore

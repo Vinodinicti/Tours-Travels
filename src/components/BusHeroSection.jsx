@@ -18,7 +18,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
       {/* -------------------------------------------------------------
          1. HERO BANNER - 100% SCREEN VIEWPORT FIT BUS VIDEO & TITLE
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen pt-32 pb-24 overflow-hidden text-white flex items-center justify-center">
+      <div className="relative min-h-screen pt-32 pb-24 overflow-hidden text-white flex flex-col items-center justify-center">
         {/* BUS VIDEO BACKGROUND */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <video
@@ -28,24 +28,25 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             playsInline
             preload="auto"
             poster="/hero-bus.jpg"
-            className="w-full h-full object-cover scale-105 filter brightness-[0.8] contrast-[1.1]"
+            className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
           >
             <source src="/hero-bus-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
           
-          {/* Top Title Badge */}
+          {/* Neat Professional Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest shadow-xl"
+            className="inline-block"
           >
-            <Sparkles className="w-4 h-4 text-[#F59E0B] animate-spin-slow" />
-            <span>{CLIENT_BUS_INFO.name} • LUXURY BUS TRAVELS</span>
+            <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+              {CLIENT_BUS_INFO.name} • LUXURY BUS OPERATOR
+            </span>
           </motion.div>
 
           {/* Main Title */}

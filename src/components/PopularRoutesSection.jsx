@@ -43,7 +43,7 @@ const PopularRoutesSection = ({ onOpenBookingModal }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                   
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-bold shadow-md">
-                    📍 {dest.location}
+                    {dest.location}
                   </span>
 
                   <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-extrabold shadow-md">

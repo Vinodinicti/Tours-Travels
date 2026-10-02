@@ -75,8 +75,8 @@ const CustomerReviewsMarquee = () => {
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-4 text-center space-y-3">
-        <span className="px-4 py-1.5 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-wider inline-block shadow-xs">
-          💬 Passenger Testimonials
+        <span className="px-4 py-1 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-xs font-extrabold uppercase tracking-widest inline-block shadow-xs">
+          PASSENGER TESTIMONIALS
         </span>
         <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
           What Our <span className="text-[#800000] italic">Pilgrims & Tourists Say</span>
