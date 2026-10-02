@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Clock, MapPin, Layers, ChevronRight, ChevronLeft, Send, Sparkles } from 'lucide-react';
+import { Clock, Layers, ChevronRight, ChevronLeft, Send } from 'lucide-react';
 import { BUS_TOUR_PACKAGES } from '../data/busData';
 
 const BusSwapCardsSection = ({ onOpenBookingModal }) => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveCardIndex((prev) => (prev + 1) % BUS_TOUR_PACKAGES.length);
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handleNextSwap = () => {
     setActiveCardIndex((prev) => (prev + 1) % BUS_TOUR_PACKAGES.length);
@@ -25,19 +36,23 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
-          <span className="px-4 py-1.5 rounded-full bg-rose-100 text-[#800000] text-xs font-bold uppercase tracking-wider inline-block border border-rose-200">
-            3D Stack Card Swapper
+          <span className="px-4 py-1.5 rounded-full bg-rose-100 text-[#800000] text-xs font-bold uppercase tracking-wider inline-block border border-rose-200 shadow-sm">
+            AUTO-CHANGING 3D STACKED CARDS
           </span>
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
             Tamil Nadu <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#800000] via-[#8B1E1E] to-[#F59E0B] italic">Bus Tour Packages</span>
           </h2>
-          <p className="text-gray-600 text-base font-medium">
-            Click the swap controls to cycle through our 3D stacked bus tour packages.
+          <p className="text-gray-600 text-sm sm:text-base font-medium">
+            Tour packages change automatically. Hover or use controls to swap manually.
           </p>
         </div>
 
         {/* 3D Swap Card Stack Container */}
-        <div className="relative h-[480px] max-w-3xl mx-auto flex items-center justify-center">
+        <div 
+          className="relative h-[480px] max-w-3xl mx-auto flex items-center justify-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           
           <AnimatePresence mode="popLayout">
             {BUS_TOUR_PACKAGES.map((pkg, idx) => {
@@ -92,7 +107,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
                     <div className="flex flex-wrap gap-2 mb-4">
                       {pkg.placesCovered.map((place, i) => (
                         <span key={i} className="px-2.5 py-1 rounded-md bg-rose-50 text-xs font-bold text-slate-800 border border-rose-200">
-                          📍 {place}
+                          {place}
                         </span>
                       ))}
                     </div>
@@ -120,27 +135,43 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
         </div>
 
-        {/* Swap Controls */}
-        <div className="flex items-center justify-center space-x-4 mt-8">
-          <button
-            onClick={handlePrevSwap}
-            className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md"
-            aria-label="Previous 3D Card"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+        {/* Swap Controls with Active Indicators */}
+        <div className="flex flex-col items-center justify-center space-y-3 mt-8">
+          <div className="flex items-center justify-center space-x-4">
+            <button
+              onClick={handlePrevSwap}
+              className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
+              aria-label="Previous 3D Card"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
-          <span className="text-xs font-extrabold text-slate-700 tracking-wider uppercase flex items-center gap-1">
-            <Layers className="w-4 h-4 text-[#800000]" /> Tap to Swap 3D Stack Cards
+            {/* Pagination Indicators */}
+            <div className="flex items-center space-x-2 px-3 py-2 rounded-full bg-white border border-rose-200 shadow-sm">
+              {BUS_TOUR_PACKAGES.map((_, dotIdx) => (
+                <button
+                  key={dotIdx}
+                  onClick={() => setActiveCardIndex(dotIdx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activeCardIndex === dotIdx ? 'w-7 bg-[#800000]' : 'w-2.5 bg-rose-200 hover:bg-rose-400'
+                  }`}
+                  aria-label={`Go to slide ${dotIdx + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNextSwap}
+              className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
+              aria-label="Next 3D Card"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          <span className="text-xs font-extrabold text-slate-600 tracking-wider uppercase flex items-center gap-1.5">
+            <Layers className="w-4 h-4 text-[#800000]" /> Auto-Rotating Cards • Tap or Hover to Control
           </span>
-
-          <button
-            onClick={handleNextSwap}
-            className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md"
-            aria-label="Next 3D Card"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
         </div>
 
       </div>
