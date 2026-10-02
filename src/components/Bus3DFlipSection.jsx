@@ -22,13 +22,13 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
           <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block border border-emerald-200">
-            3D Interactive Bus Fleet
+            PREMIUM BUS FLEET
           </span>
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#1E293B] tracking-tight">
             Our Luxury <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#800000] via-[#8B1E1E] to-[#F59E0B] italic">Bus Fleet</span>
           </h2>
           <p className="text-gray-600 text-base font-medium">
-            Click or tap any bus card below to flip it in 3D and view berth layouts, onboard amenities, and seat fares.
+            Click or tap any bus card below to view berth layouts, onboard amenities, and seat fares.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
                     <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                       <span className="text-xs font-extrabold text-[#800000] flex items-center gap-1.5">
                         <RotateCw className="w-4 h-4 animate-spin-slow text-[#F59E0B]" />
-                        Click to Flip 3D Specs
+                        Click to View Specifications
                       </span>
                       <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#800000]">
                         <ArrowRight className="w-4 h-4" />

@@ -37,13 +37,13 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-5 space-y-2">
           <span className="px-3.5 py-1 rounded-full bg-rose-100 text-[#800000] text-[11px] font-extrabold uppercase tracking-wider inline-block border border-rose-200 shadow-xs">
-            1.6s AUTO-ROTATING PACKAGES
+            FEATURED TOUR PACKAGES
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#1E293B] tracking-tight">
             Tamil Nadu <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#800000] via-[#8B1E1E] to-[#F59E0B] italic">Bus Tour Packages</span>
           </h2>
           <p className="text-gray-600 text-xs sm:text-sm font-medium">
-            Compact 3D tour cards rotate automatically every 1.6s. Hover or tap controls to swap.
+            Explore our handcrafted bus tour itineraries across Tamil Nadu.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
             <button
               onClick={handlePrevSwap}
               className="w-10 h-10 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
-              aria-label="Previous 3D Card"
+              aria-label="Previous Package"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -162,15 +162,15 @@ const BusSwapCardsSection = ({ onOpenBookingModal }) => {
 
             <button
               onClick={handleNextSwap}
-              className="w-12 h-12 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
-              aria-label="Next 3D Card"
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#800000] hover:text-white border border-rose-200 flex items-center justify-center text-[#800000] transition-all shadow-md active:scale-95"
+              aria-label="Next Package"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
 
           <span className="text-[11px] font-extrabold text-slate-500 tracking-wider uppercase flex items-center gap-1.5">
-            <Layers className="w-3.5 h-3.5 text-[#800000]" /> 1.6s Auto-Rotation • Hover to Pause
+            <Layers className="w-3.5 h-3.5 text-[#800000]" /> Tap or Hover to Explore Packages
           </span>
         </div>
 
