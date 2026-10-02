@@ -46,12 +46,12 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
           </p>
         </div>
 
-        {/* Compact Video Player Box - Reduced Size */}
-        <div className="relative max-w-2xl sm:max-w-3xl mx-auto rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-slate-950 aspect-video group">
+        {/* Compact Video Player Box - Matches Section Card Sizing */}
+        <div className="relative max-w-xl sm:max-w-2xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-slate-950 aspect-video group">
           
           <video
             ref={videoRef}
-            src="https://cdn.coverr.co/videos/coverr-driving-on-a-highway-at-sunset-5654/1080p.mp4"
+            src="/hero-bus-video.mp4"
             poster="/hero-bus.jpg"
             autoPlay
             loop
