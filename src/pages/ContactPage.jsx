@@ -18,8 +18,8 @@ const ContactPage = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Auto-calculated fields
-  const days = parseInt(formData.numberOfDays) || 1;
+  // Auto-calculated fields (Restricted to 1, 2, or 3 Days)
+  const days = Math.min(Math.max(parseInt(formData.numberOfDays) || 1, 1), 3);
   const nights = days > 1 ? days - 1 : 0;
   const daysNightsText = `${days} Day${days > 1 ? 's' : ''} / ${nights} Night${nights !== 1 ? 's' : ''}`;
   const totalPrice = days * formData.perDayRate;
@@ -245,21 +245,30 @@ const ContactPage = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Number of Days (Auto Calculates)</label>
-                      <select
-                        name="numberOfDays"
-                        value={formData.numberOfDays}
-                        onChange={(e) => setFormData({ ...formData, numberOfDays: parseInt(e.target.value) })}
-                        className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border-2 border-amber-300 text-xs font-bold text-[#1E293B] focus:ring-2 focus:ring-[#800000] focus:outline-none"
-                      >
-                        <option value={1}>1 Day (Single Day Tour)</option>
-                        <option value={2}>2 Days / 1 Night</option>
-                        <option value={3}>3 Days / 2 Nights</option>
-                        <option value={4}>4 Days / 3 Nights</option>
-                        <option value={5}>5 Days / 4 Nights</option>
-                        <option value={6}>6 Days / 5 Nights</option>
-                        <option value={7}>7 Days / 6 Nights</option>
-                      </select>
+                      <label className="text-xs font-bold text-[#1E293B]">Select Duration (1, 2, or 3 Days) *</label>
+                      <div className="grid grid-cols-3 gap-1.5 pt-0.5">
+                        {[1, 2, 3].map((num) => {
+                          const isSelected = days === num;
+                          const n = num === 1 ? 0 : num - 1;
+                          return (
+                            <button
+                              key={num}
+                              type="button"
+                              onClick={() => setFormData({ ...formData, numberOfDays: num })}
+                              className={`py-2 px-1 rounded-xl text-xs font-extrabold border transition-all text-center flex flex-col items-center justify-center ${
+                                isSelected
+                                  ? 'bg-[#800000] text-white border-[#800000] shadow-md'
+                                  : 'bg-slate-50 text-[#1E293B] border-slate-200 hover:border-amber-400'
+                              }`}
+                            >
+                              <span>{num} {num === 1 ? 'Day' : 'Days'}</span>
+                              <span className={`text-[10px] font-semibold ${isSelected ? 'text-amber-200' : 'text-gray-500'}`}>
+                                {n} {n === 1 ? 'Night' : 'Nights'}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
 
                     <div className="space-y-1">
