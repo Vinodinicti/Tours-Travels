@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, Mail, MessageSquare, CheckCircle2, Calculator } from 'lucide-react';
+import { Send, Mail, MessageSquare, CheckCircle2, Calculator, MapPin, Navigation } from 'lucide-react';
 import { CLIENT_BUS_INFO, FEATURED_DESTINATIONS_PER_DAY } from '../data/busData';
 
 const ContactPage = () => {
@@ -93,22 +93,19 @@ const ContactPage = () => {
 
               <div className="space-y-4 text-xs font-bold text-slate-700">
                 
-                <div className="flex items-start space-x-3">
-                  <Phone className="w-5 h-5 text-[#800000] shrink-0" />
-                  <div>
-                    <h5 className="font-bold text-[#1E293B]">Phone Hotlines</h5>
-                    <div className="space-y-1 mt-1">
-                      {CLIENT_BUS_INFO.phones.map((p, i) => (
-                        <a key={i} href={`tel:${CLIENT_BUS_INFO.rawPhones[i]}`} className="block hover:text-[#800000] transition-colors font-extrabold text-sm">
-                          📞 {p}
-                        </a>
-                      ))}
-                    </div>
+                <div>
+                  <h5 className="font-bold text-[#1E293B] text-sm">Phone Hotlines</h5>
+                  <div className="space-y-1.5 mt-2">
+                    {CLIENT_BUS_INFO.phones.map((p, i) => (
+                      <a key={i} href={`tel:${CLIENT_BUS_INFO.rawPhones[i]}`} className="block hover:text-[#800000] transition-colors font-extrabold text-sm tracking-wide">
+                        {p}
+                      </a>
+                    ))}
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 pt-2">
-                  <Mail className="w-5 h-5 text-[#800000] shrink-0" />
+                <div className="flex items-center space-x-3 pt-3 border-t border-slate-100">
+                  <Mail className="w-4 h-4 text-[#800000] shrink-0" />
                   <div>
                     <h5 className="font-bold text-[#1E293B]">Email Contact</h5>
                     <a href={`mailto:${CLIENT_BUS_INFO.email}`} className="text-xs text-[#800000] font-extrabold hover:underline">
@@ -308,9 +305,52 @@ const ContactPage = () => {
           </div>
 
         </div>
+
+        {/* -------------------------------------------------------------
+           GOOGLE MAP LOCATION SECTION
+           ------------------------------------------------------------- */}
+        <div className="mt-8 bg-white rounded-[2.5rem] p-6 sm:p-8 border border-slate-200 shadow-xl space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+            <div>
+              <span className="px-3 py-1 rounded-full bg-amber-100 text-[#800000] text-[11px] font-extrabold uppercase tracking-wider inline-block mb-1">
+                📍 Head Office & Bus Depot Location
+              </span>
+              <h3 className="font-serif text-2xl font-extrabold text-[#1E293B]">
+                Visit Our Office in Coimbatore
+              </h3>
+              <p className="text-xs text-slate-600 font-medium">
+                Main Bus Depot & Booking Office, Opp. Central Bus Stand, Gandhipuram, Coimbatore, Tamil Nadu 641012
+              </p>
+            </div>
+            
+            <a
+              href="https://maps.google.com/?q=Gandhipuram+Coimbatore+Bus+Stand"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-[#800000] text-white font-extrabold text-xs rounded-xl shadow-glow-maroon hover:scale-105 transition-all shrink-0 inline-flex items-center justify-center space-x-2"
+            >
+              <Navigation className="w-4 h-4 text-[#FBBF24]" />
+              <span>Get Directions on Google Maps</span>
+            </a>
+          </div>
+
+          {/* Embedded Google Map Iframe */}
+          <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 shadow-inner relative">
+            <iframe
+              title="Sri Saranya Travels Google Map Location"
+              src="https://maps.google.com/maps?q=Gandhipuram,Coimbatore,Tamil%20Nadu&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full border-0 filter contrast-[1.05]"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+
       </div>
     </div>
   );
 };
 
 export default ContactPage;
+
