@@ -28,17 +28,32 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-3 sm:space-y-4">
-          <span className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
+          >
             ABOUT SRI SARANYA TRAVELS
-          </span>
+          </motion.span>
 
-          <h1 className="font-serif text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-serif text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight"
+          >
             Tamil Nadu's Premier <span className="text-[#FBBF24] italic">Luxury Bus Operator</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-gray-100 text-xs sm:text-base max-w-2xl mx-auto font-semibold drop-shadow leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="text-gray-100 text-xs sm:text-base max-w-2xl mx-auto font-semibold drop-shadow leading-relaxed"
+          >
             "{CLIENT_BUS_INFO.slogan}" — Delivering reliable, safe, and punctual Volvo sleeper bus travel across Tamil Nadu for over a decade.
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -47,7 +62,13 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center">
           
-          <div className="lg:col-span-6 relative h-[240px] sm:h-[420px] rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 relative h-[240px] sm:h-[420px] rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white"
+          >
             <img
               src="/about-bus-15years.jpg"
               alt="Sri Saranya Travels 15+ Years Highway Travel Experience"
@@ -58,9 +79,15 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
               <span className="font-serif text-lg sm:text-2xl font-extrabold text-[#800000] block">15+ Years Experience</span>
               <span className="text-[10px] sm:text-xs font-bold block text-slate-700">Punctual Bus Tour Operations Across Tamil Nadu</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 space-y-4 sm:space-y-6"
+          >
             <h2 className="font-serif text-xl sm:text-3xl font-extrabold text-[#1E293B] leading-snug">
               Why Passengers Choose Sri Saranya Travels
             </h2>
@@ -93,7 +120,7 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
                 <ArrowRight className="w-4 h-4 text-[#FBBF24]" />
               </button>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

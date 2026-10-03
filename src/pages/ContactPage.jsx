@@ -66,17 +66,32 @@ const ContactPage = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
+          >
             SRI SARANYA TRAVELS • 24/7 HELPLINE
-          </span>
+          </motion.span>
 
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl"
+          >
             Contact Us & <span className="text-[#FBBF24] italic">Tour Reservation</span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow">
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow"
+          >
             "{CLIENT_BUS_INFO.slogan}" — Get in touch for instant automatic tour price estimation and bus booking.
-          </p>
+          </motion.p>
         </div>
       </div>
 

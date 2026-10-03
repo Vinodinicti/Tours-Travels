@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck } from 'lucide-react';
 import { CLIENT_BUS_INFO } from '../data/busData';
 
@@ -34,7 +35,13 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto space-y-2"
+        >
           <span className="px-3.5 py-1 rounded-full bg-amber-100 text-[#800000] border border-amber-300 text-[11px] font-extrabold uppercase tracking-widest inline-block shadow-xs">
             VIRTUAL VIDEO TOUR
           </span>
@@ -44,7 +51,7 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
           <p className="text-gray-600 text-xs sm:text-sm font-medium">
             Watch the video to experience the comfort of our air-suspended Volvo AC sleeper berths, highway safety, and 24/7 passenger care.
           </p>
-        </div>
+        </motion.div>
 
         {/* Compact Video Player Box - Matches Section Card Sizing */}
         <div className="relative max-w-xl sm:max-w-2xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-slate-950 aspect-video group">

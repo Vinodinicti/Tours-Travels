@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Wifi, ShieldCheck, CheckCircle2, RotateCw, ArrowRight, Sparkles } from 'lucide-react';
 import { BUS_FLEET_3D } from '../data/busData';
 
@@ -70,7 +71,13 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-6 space-y-3"
+        >
           <span className="px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider inline-block border border-emerald-200">
             PREMIUM BUS FLEET
           </span>
@@ -80,7 +87,7 @@ const Bus3DFlipSection = ({ onOpenBookingModal }) => {
           <p className="text-gray-600 text-base font-medium">
             Click or tap any bus card below to view berth layouts & amenities — cards automatically flip back after 4s.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3D Flip Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
