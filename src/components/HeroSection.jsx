@@ -33,16 +33,17 @@ const HeroSection = ({ activePage, setActivePage, onOpenEnquiry }) => {
           muted
           loop
           playsInline
+          poster="/hero-bus.jpg"
           className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
         >
-          {/* High-quality cinematic driving video on scenic mountain/highway road */}
+          {/* Fast loading local video file */}
           <source
-            src="https://cdn.coverr.co/videos/coverr-driving-on-a-scenic-mountain-road-5444/1080p.mp4"
+            src="/hero-bus-video.mp4"
             type="video/mp4"
           />
           {/* Fallback image if video cannot load */}
           <img
-            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=2000&q=85"
+            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=75"
             alt="Sri Saranya Tours Travel"
             className="w-full h-full object-cover"
           />

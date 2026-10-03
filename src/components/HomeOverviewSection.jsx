@@ -30,7 +30,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             
             <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-slate-200 shadow-lg space-y-4 hover:shadow-xl transition-all">
               <div className="relative h-44 rounded-2xl overflow-hidden">
-                <img src="/bus-1.jpg" alt="Volvo 2+1 AC Sleeper Coach" className="w-full h-full object-cover" />
+                <img src="/bus-1.jpg" alt="Volvo 2+1 AC Sleeper Coach" loading="lazy" className="w-full h-full object-cover" />
                 <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
                   VOLVO 2+1 AC SLEEPER
                 </span>
@@ -55,7 +55,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
 
             <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 border border-slate-200 shadow-lg space-y-4 hover:shadow-xl transition-all">
               <div className="relative h-44 rounded-2xl overflow-hidden">
-                <img src="/bus-2.jpg" alt="Executive 2+2 Recliner Coach" className="w-full h-full object-cover" />
+                <img src="/bus-2.jpg" alt="Executive 2+2 Recliner Coach" loading="lazy" className="w-full h-full object-cover" />
                 <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#D97706] text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
                   EXECUTIVE 2+2 RECLINER
                 </span>

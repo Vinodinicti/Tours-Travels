@@ -84,6 +84,7 @@ const BusSwapCardsSection = ({ onOpenBookingModal, packagesList = BUS_TOUR_PACKA
                       <img
                         src={pkg.image}
                         alt={pkg.name}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />

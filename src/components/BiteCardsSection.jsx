@@ -92,6 +92,7 @@ const BiteCardsSection = ({ setActivePage, onOpenEnquiry }) => {
                   <img
                     src={card.image}
                     alt={card.title}
+                    loading="lazy"
                     className="w-full h-full object-cover bite-card-art"
                   />
                   {/* Subtle Base Dark Gradient Overlay for Typography Readability */}
