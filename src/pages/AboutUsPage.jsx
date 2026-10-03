@@ -18,8 +18,9 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
       <div className="relative py-16 sm:py-28 pt-24 sm:pt-32 overflow-hidden text-white flex flex-col items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80"
+            src="/hero-bus.jpg"
             alt="Sri Saranya Travels Scenic Journey Landscape"
+            loading="lazy"
             className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
           />
           <div className="absolute inset-0 bg-black/30" />
