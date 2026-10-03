@@ -13,12 +13,12 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
       {/* -------------------------------------------------------------
-         PAGE HERO BANNER: RESPONSIVE COMPACT FIT & ALIGNMENT
+         PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative py-16 sm:py-28 pt-24 sm:pt-32 overflow-hidden text-white flex flex-col items-center justify-center">
+      <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero-bus.jpg"
+            src="/about-hero-bg.jpg"
             alt="Sri Saranya Travels Scenic Journey Landscape"
             loading="lazy"
             className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
