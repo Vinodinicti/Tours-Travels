@@ -79,7 +79,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="w-full max-w-md bg-white border-2 border-amber-300 rounded-[2.5rem] p-8 sm:p-10 shadow-2xl relative z-10 space-y-6"
+          className="w-full max-w-md bg-white border-2 border-amber-300 rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 shadow-2xl relative z-10 space-y-6"
         >
           <div className="text-center space-y-2">
             <div className="w-16 h-16 rounded-3xl bg-gradient-maroon-gold text-white flex items-center justify-center mx-auto shadow-glow-maroon mb-3">
@@ -146,27 +146,26 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
   // 2. AUTHENTICATED ADMIN MANAGEMENT DASHBOARD
   // ------------------------------------------------------------------
   return (
-    <div className="bg-[#FAF9F6] min-h-screen pt-28 pb-20 text-[#1E293B] relative overflow-hidden">
+    <div className="bg-[#FAF9F6] min-h-screen pt-24 sm:pt-28 pb-20 text-[#1E293B] relative overflow-hidden">
       <div className="absolute inset-0 bg-pattern-grid pointer-events-none opacity-40" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10 space-y-6 sm:space-y-8">
         
         {/* Top Header Controls Bar */}
-        <div className="bg-white border-2 border-amber-300 p-6 sm:p-8 rounded-[2.5rem] shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-4">
-            <img src="/logo.png" alt="Logo" className="h-12 w-auto object-contain" />
-            <div>
-              <div className="flex items-center space-x-2">
-                <h1 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#1E293B]">Admin Control Panel</h1>
-                <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-extrabold uppercase">Active Session</span>
+        <div className="bg-white border-2 border-amber-300 p-4 sm:p-8 rounded-3xl sm:rounded-[2.5rem] shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-center space-x-3 sm:space-x-4 w-full sm:w-auto">
+            <img src="/logo.png" alt="Logo" className="h-10 sm:h-12 w-auto object-contain shrink-0" />
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="font-serif text-lg sm:text-3xl font-extrabold text-[#1E293B] leading-tight">Admin Control Panel</h1>
               </div>
-              <p className="text-xs text-gray-500 font-bold">Manage Tour Packages & Customer Booking Enquiries</p>
+              <p className="text-[11px] sm:text-xs text-gray-500 font-bold truncate">Manage Tour Packages & Customer Booking Enquiries</p>
             </div>
           </div>
 
           <button
             onClick={() => setIsLoggedIn(false)}
-            className="px-5 py-2.5 bg-rose-50 text-rose-700 border border-rose-200 font-extrabold rounded-2xl hover:bg-rose-100 transition-all text-xs flex items-center space-x-2 shrink-0"
+            className="w-full sm:w-auto px-4 py-2 sm:py-2.5 bg-rose-50 text-rose-700 border border-rose-200 font-extrabold rounded-xl sm:rounded-2xl hover:bg-rose-100 transition-all text-xs flex items-center justify-center space-x-2 shrink-0"
           >
             <LogOut className="w-4 h-4" />
             <span>Logout Admin</span>
@@ -174,29 +173,29 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="flex space-x-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white p-2 rounded-2xl border border-slate-200 shadow-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full sm:w-auto">
             <button
               onClick={() => setActiveTab('bookings')}
-              className={`px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center space-x-2 ${
+              className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center space-x-2 ${
                 activeTab === 'bookings'
                   ? 'bg-[#800000] text-white shadow-md'
-                  : 'text-slate-700 hover:bg-slate-100'
+                  : 'text-slate-700 hover:bg-slate-100 bg-slate-50'
               }`}
             >
-              <Calendar className="w-4 h-4" />
-              <span>Customer Booking Enquiries ({enquiries.length})</span>
+              <Calendar className="w-4 h-4 shrink-0" />
+              <span>Booking Enquiries ({enquiries.length})</span>
             </button>
 
             <button
               onClick={() => setActiveTab('packages')}
-              className={`px-5 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center space-x-2 ${
+              className={`px-4 py-2.5 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center space-x-2 ${
                 activeTab === 'packages'
                   ? 'bg-[#800000] text-white shadow-md'
-                  : 'text-slate-700 hover:bg-slate-100'
+                  : 'text-slate-700 hover:bg-slate-100 bg-slate-50'
               }`}
             >
-              <Bus className="w-4 h-4" />
+              <Bus className="w-4 h-4 shrink-0" />
               <span>Manage Tour Packages ({packagesList.length})</span>
             </button>
           </div>
@@ -204,7 +203,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
           {activeTab === 'packages' && (
             <button
               onClick={() => setShowAddPackageModal(true)}
-              className="px-5 py-2 bg-gradient-maroon-gold text-white font-extrabold rounded-xl text-xs shadow-glow-maroon hover:scale-105 transition-all flex items-center space-x-1.5"
+              className="w-full sm:w-auto px-5 py-2.5 bg-gradient-maroon-gold text-white font-extrabold rounded-xl text-xs shadow-glow-maroon hover:scale-105 transition-all flex items-center justify-center space-x-1.5"
             >
               <Plus className="w-4 h-4 text-[#FBBF24]" />
               <span>Add New Package</span>
@@ -213,26 +212,26 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
         </div>
 
         {/* -------------------------------------------------------------
-           TAB 1: ENQUIRY BOOKINGS TABLE
+           TAB 1: ENQUIRY BOOKINGS (EXTENDED TEXTS ON MOBILE & DESKTOP)
            ------------------------------------------------------------- */}
         {activeTab === 'bookings' && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             
             {/* Search & Status Filters */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
               <div className="relative w-full sm:w-80">
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Search passenger name, phone or route..."
+                  placeholder="Search passenger, phone or route..."
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-bold text-[#1E293B] focus:ring-2 focus:ring-[#800000] focus:outline-none"
                 />
                 <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
               </div>
 
-              <div className="flex items-center space-x-2">
-                <span className="text-xs font-bold text-gray-500">Filter Status:</span>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold text-gray-500 mr-1">Status:</span>
                 {['all', 'Pending', 'Confirmed', 'Completed'].map((st) => (
                   <button
                     key={st}
@@ -249,14 +248,138 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
               </div>
             </div>
 
-            {/* Bookings Data Table */}
-            <div className="bg-white border-2 border-slate-200 rounded-[2rem] shadow-xl overflow-hidden">
+            {/* 1A. MOBILE VIEW: EXTENDED ENQUIRY CARDS (Full Extended Details, No Truncation) */}
+            <div className="block lg:hidden space-y-4">
+              {filteredEnquiries.length === 0 ? (
+                <div className="bg-white p-8 rounded-2xl border border-slate-200 text-center text-gray-400 font-bold text-xs">
+                  No booking enquiries found.
+                </div>
+              ) : (
+                filteredEnquiries.map((enq) => (
+                  <div
+                    key={enq.id}
+                    className="bg-white border-2 border-slate-200 rounded-2xl p-4 sm:p-5 shadow-md space-y-3.5 transition-all hover:border-amber-300"
+                  >
+                    {/* Top Card Header: Name, Status & Price */}
+                    <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-extrabold text-[#1E293B] text-base leading-snug">{enq.name}</span>
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase shadow-xs ${
+                            enq.status === 'Confirmed'
+                              ? 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+                              : enq.status === 'Completed'
+                              ? 'bg-blue-100 text-blue-700 border border-blue-300'
+                              : 'bg-amber-100 text-amber-800 border border-amber-300'
+                          }`}>
+                            {enq.status}
+                          </span>
+                        </div>
+                        <a
+                          href={`tel:${enq.phone.replace(/[^0-9+]/g, '')}`}
+                          className="text-gray-500 text-xs font-semibold hover:text-[#800000] inline-flex items-center gap-1 mt-0.5"
+                        >
+                          <Phone className="w-3 h-3 text-[#800000]" />
+                          <span>{enq.phone}</span>
+                        </a>
+                      </div>
+
+                      <div className="text-right shrink-0">
+                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Total Fare</span>
+                        <span className="font-serif text-base sm:text-lg font-extrabold text-[#D97706]">
+                          ₹{(enq.totalPrice || (enq.numberOfDays * (enq.perDayRate || 2500))).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Tour Destination - Extended Full Text */}
+                    <div className="bg-rose-50/70 border border-rose-200/80 rounded-xl p-3">
+                      <span className="text-[10px] text-[#800000] font-extrabold uppercase tracking-wider block mb-0.5">
+                        Tour Package / Route
+                      </span>
+                      <span className="text-xs sm:text-sm font-extrabold text-[#1E293B] block leading-snug">
+                        {enq.destination}
+                      </span>
+                    </div>
+
+                    {/* Duration, Dates & Passengers Info Grid */}
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Duration</span>
+                        <span className="font-extrabold text-slate-800 text-xs block">{enq.numberOfDays} Days Tour</span>
+                      </div>
+                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Travel Date</span>
+                        <span className="font-extrabold text-slate-800 text-xs block">{enq.startDate || 'Immediate / Flexible'}</span>
+                      </div>
+                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 col-span-2">
+                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Passengers Group</span>
+                        <span className="font-extrabold text-slate-800 text-xs block">{enq.passengersCount || '1-2 Passengers'}</span>
+                      </div>
+                    </div>
+
+                    {/* EXTENDED CUSTOMER SPECIAL REQUEST / MESSAGE (Full Text, No Truncation) */}
+                    {enq.message && (
+                      <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200">
+                        <div className="flex items-center gap-1.5 mb-1 text-[11px] font-extrabold text-[#800000]">
+                          <MessageSquare className="w-3.5 h-3.5 text-[#F59E0B]" />
+                          <span>Customer Special Request / Note:</span>
+                        </div>
+                        <p className="text-xs font-semibold text-gray-800 whitespace-normal break-words leading-relaxed">
+                          "{enq.message}"
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Mobile Action Controls: WhatsApp, Status Changer, Delete */}
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
+                      <div className="flex items-center gap-2 flex-1 min-w-[200px]">
+                        {/* WhatsApp Direct Chat */}
+                        <a
+                          href={`https://wa.me/${enq.phone.replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(enq.name)},%20Sri%20Saranya%20Travels%20here%20regarding%20your%20${encodeURIComponent(enq.destination)}%20tour.`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-all text-xs font-bold inline-flex items-center justify-center gap-1.5 shadow-xs"
+                        >
+                          <MessageSquare className="w-3.5 h-3.5" />
+                          <span>WhatsApp</span>
+                        </a>
+
+                        {/* Change Status Dropdown */}
+                        <select
+                          value={enq.status}
+                          onChange={(e) => onUpdateEnquiryStatus(enq.id, e.target.value)}
+                          className="flex-1 px-3 py-2 rounded-xl bg-slate-100 text-slate-800 font-bold border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#800000]"
+                        >
+                          <option value="Pending">Pending</option>
+                          <option value="Confirmed">Confirmed</option>
+                          <option value="Completed">Completed</option>
+                        </select>
+                      </div>
+
+                      <button
+                        onClick={() => onDeleteEnquiry(enq.id)}
+                        className="p-2 text-rose-600 hover:bg-rose-50 rounded-xl border border-rose-200 transition-colors shrink-0"
+                        title="Delete Enquiry"
+                        aria-label="Delete Enquiry"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* 1B. DESKTOP VIEW: DATA TABLE (With Extended Full Texts, No Truncation) */}
+            <div className="hidden lg:block bg-white border-2 border-slate-200 rounded-[2rem] shadow-xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs">
                   <thead>
                     <tr className="bg-[#FFF5F5] border-b border-rose-200 text-[#800000] font-extrabold uppercase tracking-wider text-[11px]">
                       <th className="p-4">Passenger Info</th>
-                      <th className="p-4">Tour Destination</th>
+                      <th className="p-4">Tour Destination & Special Requests</th>
                       <th className="p-4">Duration & Dates</th>
                       <th className="p-4">Total Fare</th>
                       <th className="p-4">Status</th>
@@ -273,28 +396,33 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
                     ) : (
                       filteredEnquiries.map((enq) => (
                         <tr key={enq.id} className="hover:bg-amber-50/50 transition-colors">
-                          <td className="p-4">
+                          <td className="p-4 align-top">
                             <span className="font-extrabold text-[#1E293B] block text-sm">{enq.name}</span>
-                            <span className="text-gray-500 text-[11px] block">{enq.phone}</span>
-                            <span className="text-[10px] text-gray-400 block">{enq.passengersCount}</span>
+                            <a href={`tel:${enq.phone.replace(/[^0-9+]/g, '')}`} className="text-gray-500 text-[11px] block hover:text-[#800000]">
+                              {enq.phone}
+                            </a>
+                            <span className="text-[10px] text-gray-400 block mt-0.5">{enq.passengersCount}</span>
                           </td>
-                          <td className="p-4">
-                            <span className="font-bold text-[#800000] block">{enq.destination}</span>
+                          <td className="p-4 align-top max-w-sm">
+                            <span className="font-bold text-[#800000] block text-xs leading-snug">{enq.destination}</span>
                             {enq.message && (
-                              <span className="text-[10px] text-gray-500 block truncate max-w-xs">"{enq.message}"</span>
+                              <div className="mt-1.5 p-2 rounded-lg bg-amber-50/80 border border-amber-200/70 text-[11px] text-gray-700 whitespace-normal break-words leading-relaxed font-medium">
+                                <span className="font-bold text-[#800000]">Request: </span>"{enq.message}"
+                              </div>
                             )}
                           </td>
-                          <td className="p-4">
+                          <td className="p-4 align-top whitespace-nowrap">
                             <span className="font-bold block text-slate-800">{enq.numberOfDays} Days Tour</span>
                             <span className="text-[11px] text-gray-500 block">Start: {enq.startDate || 'Immediate'}</span>
                           </td>
-                          <td className="p-4">
-                            <span className="font-serif text-base font-extrabold text-[#D97706]">
+                          <td className="p-4 align-top whitespace-nowrap">
+                            <span className="font-serif text-base font-extrabold text-[#D97706] block">
                               ₹{(enq.totalPrice || (enq.numberOfDays * (enq.perDayRate || 2500))).toLocaleString()}
                             </span>
+                            <span className="text-[10px] text-gray-400 block font-normal">₹{enq.perDayRate || 2500}/day</span>
                           </td>
-                          <td className="p-4">
-                            <span className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase shadow-xs ${
+                          <td className="p-4 align-top">
+                            <span className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase shadow-xs whitespace-nowrap ${
                               enq.status === 'Confirmed'
                                 ? 'bg-emerald-100 text-emerald-700 border border-emerald-300'
                                 : enq.status === 'Completed'
@@ -304,23 +432,21 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
                               {enq.status}
                             </span>
                           </td>
-                          <td className="p-4 text-right space-x-2">
-                            {/* WhatsApp Direct Chat */}
+                          <td className="p-4 align-top text-right space-x-2 whitespace-nowrap">
                             <a
                               href={`https://wa.me/${enq.phone.replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(enq.name)},%20Sri%20Saranya%20Travels%20here%20regarding%20your%20${encodeURIComponent(enq.destination)}%20tour.`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-2.5 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all text-[11px] font-bold inline-flex items-center gap-1"
+                              className="px-2.5 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-all text-[11px] font-bold inline-flex items-center gap-1 shadow-xs"
                             >
                               <MessageSquare className="w-3 h-3" />
                               <span>WhatsApp</span>
                             </a>
 
-                            {/* Change Status Dropdown */}
                             <select
                               value={enq.status}
                               onChange={(e) => onUpdateEnquiryStatus(enq.id, e.target.value)}
-                              className="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 font-bold border border-slate-300 text-[11px]"
+                              className="px-2 py-1 rounded-lg bg-slate-100 text-slate-800 font-bold border border-slate-300 text-[11px] focus:ring-1 focus:ring-[#800000]"
                             >
                               <option value="Pending">Set Pending</option>
                               <option value="Confirmed">Set Confirmed</option>
@@ -329,7 +455,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
 
                             <button
                               onClick={() => onDeleteEnquiry(enq.id)}
-                              className="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                              className="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors inline-block"
                               title="Delete Enquiry"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -347,40 +473,62 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
         )}
 
         {/* -------------------------------------------------------------
-           TAB 2: MANAGE TOUR PACKAGES LIST
+           TAB 2: MANAGE TOUR PACKAGES LIST (EXTENDED TEXTS ON ALL DEVICES)
            ------------------------------------------------------------- */}
         {activeTab === 'packages' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {packagesList.map((pkg) => (
-              <div key={pkg.id} className="bg-white border-2 border-slate-200 rounded-[2.5rem] p-6 shadow-xl flex flex-col justify-between space-y-4">
+              <div key={pkg.id} className="bg-white border-2 border-slate-200 rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-4">
                 <div>
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-3">
                     <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
-                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-extrabold">
+                    <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-extrabold shadow-md">
                       {pkg.duration || `${pkg.defaultDays} Days`}
                     </span>
-                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-extrabold">
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#F59E0B] text-slate-950 text-xs font-extrabold shadow-md">
                       ₹{pkg.perDayPrice.toLocaleString()} / Day
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-extrabold text-[#1E293B] mb-1">{pkg.name}</h3>
+                  <h3 className="font-serif text-lg sm:text-xl font-extrabold text-[#1E293B] mb-1.5 leading-snug">{pkg.name}</h3>
                   <p className="text-xs text-[#800000] font-extrabold mb-3">🚌 {pkg.busDetail}</p>
 
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {pkg.placesCovered.map((pl, i) => (
-                      <span key={i} className="px-2 py-0.5 rounded-md bg-amber-50 text-[#800000] text-[11px] font-bold border border-amber-200">
-                        📍 {pl}
-                      </span>
-                    ))}
+                  {/* Extended Places Covered */}
+                  <div className="space-y-1.5 mb-3">
+                    <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider block">Places Covered:</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {pkg.placesCovered.map((pl, i) => (
+                        <span key={i} className="px-2 py-1 rounded-lg bg-amber-50 text-[#800000] text-[11px] font-bold border border-amber-200">
+                          📍 {pl}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+
+                  {/* Extended Package Highlights */}
+                  {pkg.highlights && pkg.highlights.length > 0 && (
+                    <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                      <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider block">Package Highlights:</span>
+                      <div className="space-y-1">
+                        {pkg.highlights.map((hl, idx) => (
+                          <div key={idx} className="text-xs text-gray-700 flex items-start gap-1.5 font-medium">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                            <span>{hl}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-extrabold text-emerald-600">Active Package</span>
+                  <span className="text-xs font-extrabold text-emerald-600 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                    <span>Active Package</span>
+                  </span>
                   <button
                     onClick={() => onDeletePackage(pkg.id)}
-                    className="px-3 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold rounded-xl text-xs flex items-center gap-1 transition-all"
+                    className="px-3.5 py-1.5 bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all border border-rose-200"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Delete</span>
@@ -395,9 +543,9 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
 
       {/* ADD NEW PACKAGE MODAL */}
       {showAddPackageModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-[2.5rem] p-8 max-w-lg w-full border-2 border-amber-300 shadow-2xl space-y-4">
-            <h3 className="font-serif text-2xl font-extrabold text-[#1E293B]">Add New Bus Tour Package</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-8 max-w-lg w-full border-2 border-amber-300 shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+            <h3 className="font-serif text-xl sm:text-2xl font-extrabold text-[#1E293B]">Add New Bus Tour Package</h3>
             
             <form onSubmit={handleCreatePackage} className="space-y-3">
               <div>

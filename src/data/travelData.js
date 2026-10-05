@@ -105,7 +105,7 @@ export const DESTINATIONS = [
     numericPrice: 800,
     rating: 4.9,
     reviewsCount: 480,
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Manchester of South India. Daily luxury AC cab and bus transfers to Chennai, Bangalore, and Hyderabad.",
     fullDescription: "Sri Saranya Tours operates daily trips connecting Coimbatore with major metropolitan hubs and spiritual centers across South India.",
     highlights: ["Adiyogi Shiva Statue", "Marudhamalai Temple", "Siruvani Waterfalls", "Daily Express Cabs"]
@@ -120,7 +120,7 @@ export const DESTINATIONS = [
     numericPrice: 950,
     rating: 4.8,
     reviewsCount: 520,
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Gateway to South India. Frequent daily rides connecting Chennai, Marina Beach, and silk temple city Kanchipuram.",
     fullDescription: "Seamless connecting cabs and tempo travellers from Coimbatore and Salem directly to Chennai Central, Airport, and Kanchipuram.",
     highlights: ["Marina Beach", "Kapaleeshwarar Temple", "Kanchipuram Silk & Temples", "24/7 Airport Cab Pickups"]
@@ -135,7 +135,7 @@ export const DESTINATIONS = [
     numericPrice: 900,
     rating: 4.9,
     reviewsCount: 610,
-    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Garden City & Tech Hub. Daily door-to-door luxury cab service connecting Tamil Nadu to Bengaluru.",
     fullDescription: "Travel in total comfort with Swift Dzire, Innova Crysta, or Force Urbania between Bangalore, Hosur, and Tamil Nadu cities.",
     highlights: ["Lalbagh Botanical Garden", "Bangalore Palace", "Commercial Street", "Daily Inter-State Drops"]
@@ -150,7 +150,7 @@ export const DESTINATIONS = [
     numericPrice: 2499,
     rating: 5.0,
     reviewsCount: 390,
-    image: "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1590077428593-a55bb07c4665?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Sacred seashore abode of Lord Murugan. Special pilgrimage packages with comfortable stay and temple darshan guidance.",
     fullDescription: "Embark on a divine spiritual journey to Thiruchendur Murugan Temple, Suchindram, and Nagerkovil with our dedicated pilgrimage fleet.",
     highlights: ["Thiruchendur Seashore Temple Darshan", "Nagerkovil Nagaraja Temple", "Kanyakumari Sunset View", "AC Group Traveller"]
@@ -165,7 +165,7 @@ export const DESTINATIONS = [
     numericPrice: 2999,
     rating: 4.9,
     reviewsCount: 430,
-    image: "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Holy Basilica of Our Lady of Good Health Velankanni paired with French colonial charm of Pondicherry.",
     fullDescription: "Visit the revered coastal shrine of Velankanni, explore Karaikal, and relax at Pondicherry's Promenade Beach in our luxury AC vehicles.",
     highlights: ["Velankanni Church Darshan", "Karaikal Beach", "Pondicherry French Quarter", "Private AC Cab / Urbania"]
@@ -180,7 +180,7 @@ export const DESTINATIONS = [
     numericPrice: 3200,
     rating: 4.95,
     reviewsCount: 510,
-    image: "https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Temple City of South India. Navagraha temple circuit, Chidambaram Natarajar, Karaikudi & Devakottai heritage.",
     fullDescription: "Specialized Navagraha and Chidambaram temple tour packages. We take care of driver halting, temple timings, and comfortable lodging.",
     highlights: ["Navagraha 9 Temples Tour", "Chidambaram Natarajar Temple", "Karaikudi Chettinad Palace", "Devakottai Heritage Stays"]
@@ -195,7 +195,7 @@ export const DESTINATIONS = [
     numericPrice: 4500,
     rating: 4.9,
     reviewsCount: 720,
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Queen of Hill Stations. Misty pine forests, botanical gardens, tea factory tours, and lake boating.",
     fullDescription: "Escape into the cool Nilgiri hills. Ride Innova Crysta or Force Urbania up winding mountain roads with experienced hill drivers.",
     highlights: ["Ooty Botanical Garden & Lake", "Doddabetta Peak View", "Kodaikanal Pillar Rocks", "Tea Factory & Spice Gardens"]
@@ -210,7 +210,7 @@ export const DESTINATIONS = [
     numericPrice: 58499,
     rating: 4.8,
     reviewsCount: 290,
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=70",
     shortDescription: "Futuristic skyline, desert safari, Burj Khalifa, and visa assistance for international family holidays.",
     fullDescription: "Beyond daily cabs, Sri Sarany Tours handles complete international flight tickets, visa processing, and tour packages to Dubai, Singapore & Bali.",
     highlights: ["Burj Khalifa 124th Floor", "Desert Safari with BBQ", "Dubai Marina Yacht Cruise", "Complete Visa Support"]

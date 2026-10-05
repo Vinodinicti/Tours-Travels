@@ -4,7 +4,7 @@ import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck } from 'lucide-rea
 import { CLIENT_BUS_INFO } from '../data/busData';
 
 const BusVideoShowcase = ({ onOpenBookingModal }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
@@ -60,7 +60,7 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
             ref={videoRef}
             src="/hero-bus-video.mp4"
             poster="/hero-bus.jpg"
-            autoPlay
+            preload="none"
             loop
             muted={isMuted}
             playsInline

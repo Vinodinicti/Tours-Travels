@@ -16,18 +16,18 @@ const iconMap = {
 
 const ServicesPage = ({ onOpenEnquiry }) => {
   return (
-    <div className="pt-28 pb-24 bg-gradient-warm-soft min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="pt-20 sm:pt-28 pb-14 sm:pb-24 bg-gradient-warm-soft min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-16">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="px-4 py-1.5 rounded-full bg-peach/20 text-coral text-xs font-bold uppercase tracking-wider inline-block">
+        <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-4">
+          <span className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-peach/20 text-coral text-[10px] sm:text-xs font-bold uppercase tracking-wider inline-block">
             End-To-End Concierge
           </span>
-          <h1 className="font-serif text-4xl sm:text-6xl font-extrabold text-charcoal tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl font-extrabold text-charcoal tracking-tight leading-tight">
             Our Premium Travel <span className="text-gradient-coral italic">Services</span>
           </h1>
-          <p className="text-charcoal-light text-base sm:text-lg">
+          <p className="text-charcoal-light text-xs sm:text-lg">
             From seamless flight bookings and handpicked luxury resorts to private chauffeured transfers and 24/7 concierge assistance.
           </p>
         </div>

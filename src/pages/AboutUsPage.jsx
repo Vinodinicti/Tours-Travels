@@ -10,29 +10,30 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
       
       {/* Background Patterns */}
       <div className="absolute inset-0 bg-pattern-dots pointer-events-none opacity-50" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+      <div className="hidden md:block absolute top-1/4 -left-32 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
 
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden text-white">
+      <div className="relative min-h-[48vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="/about-hero-bg.jpg"
             alt="Sri Saranya Travels Scenic Journey Landscape"
-            loading="lazy"
+            fetchpriority="high"
+            decoding="async"
             className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-3 sm:space-y-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-2.5 sm:space-y-4">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
+            className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/70 sm:bg-black/50 sm:backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
           >
             ABOUT SRI SARANYA TRAVELS
           </motion.span>
@@ -72,10 +73,12 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
             <img
               src="/about-bus-15years.jpg"
               alt="Sri Saranya Travels 15+ Years Highway Travel Experience"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-            <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md text-[#1E293B] shadow-lg border border-amber-200">
+            <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white sm:bg-white/95 sm:backdrop-blur-md text-[#1E293B] shadow-lg border border-amber-200">
               <span className="font-serif text-lg sm:text-2xl font-extrabold text-[#800000] block">15+ Years Experience</span>
               <span className="text-[10px] sm:text-xs font-bold block text-slate-700">Punctual Bus Tour Operations Across Tamil Nadu</span>
             </div>

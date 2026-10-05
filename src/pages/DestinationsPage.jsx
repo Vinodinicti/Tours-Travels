@@ -37,23 +37,25 @@ const DestinationsPage = ({ onSelectDestination }) => {
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden text-white">
+      <div className="relative min-h-[48vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1920&q=80"
+            src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1080&q=70"
             alt="Tamil Nadu Famous Tour Destinations"
+            fetchpriority="high"
+            decoding="async"
             className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
           />
           <div className="absolute inset-0 bg-black/25" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-2.5 sm:space-y-4">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
+            className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/70 sm:bg-black/40 sm:backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg"
           >
             TAMIL NADU TOUR DESTINATIONS & TARIFF
           </motion.span>
@@ -62,7 +64,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl"
+            className="font-serif text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight"
           >
             Destinations & <span className="text-[#FBBF24] italic">Tour Booking</span>
           </motion.h1>
@@ -71,7 +73,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow"
+            className="text-gray-100 text-xs sm:text-base max-w-2xl mx-auto font-semibold drop-shadow"
           >
             Explore top Tamil Nadu destinations with clear per-day bus tour pricing and automatic cost calculation.
           </motion.p>
@@ -105,7 +107,7 @@ const DestinationsPage = ({ onSelectDestination }) => {
             >
               <div>
                 <div className="relative h-56 rounded-t-[2.5rem] overflow-hidden">
-                  <img src={dest.image} alt={dest.name} className="w-full h-full object-cover" />
+                  <img src={dest.image} alt={dest.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                   
                   <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-bold shadow-md">

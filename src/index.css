@@ -298,6 +298,7 @@
 
 /* -------------------------------------------------------------
    UIVERSE CARD HOVER FOCUS-BLUR ANIMATION (by Thomasfadi)
+   Desktop only: disabled on mobile view so cards remain crisp and unblurred
    ------------------------------------------------------------- */
 .uiverse-cards-grid {
   transition: all 400ms ease;
@@ -309,15 +310,39 @@
   will-change: transform, filter, opacity;
 }
 
-.uiverse-card-item:hover {
-  transform: scale(1.04) translateY(-6px) !important;
-  z-index: 20;
+/* Hover effects apply only on desktop devices with true hover support */
+@media (min-width: 768px) and (hover: hover) {
+  .uiverse-card-item:hover {
+    transform: scale(1.04) translateY(-6px) !important;
+    z-index: 20;
+  }
+
+  .uiverse-cards-grid:hover > .uiverse-card-item:not(:hover) {
+    filter: blur(6px);
+    transform: scale(0.95) !important;
+    opacity: 0.65;
+  }
 }
 
-.uiverse-cards-grid:hover > .uiverse-card-item:not(:hover) {
-  filter: blur(6px);
-  transform: scale(0.95) !important;
-  opacity: 0.65;
+/* Mobile view alone: Absolutely NO card blur or blur animations on tap/scroll */
+@media (max-width: 767px) {
+  .uiverse-cards-grid:hover > .uiverse-card-item:not(:hover),
+  .uiverse-cards-grid .uiverse-card-item,
+  .uiverse-card-item,
+  .uiverse-card-item:hover,
+  .uiverse-card-item:active,
+  .uiverse-card-item:focus,
+  .perspective-1000,
+  .perspective-1000 *,
+  .gharsh-card,
+  .gharsh-card::before,
+  .gharsh-card::after {
+    filter: none !important;
+    -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Custom Scrollbar */

@@ -22,7 +22,7 @@ const HeroSection = ({ activePage, setActivePage, onOpenEnquiry }) => {
   };
 
   return (
-    <section className="relative min-h-screen h-screen w-full overflow-hidden bg-[#202A36] text-white flex flex-col">
+    <section className="relative min-h-[75vh] sm:min-h-screen h-auto sm:h-screen w-full overflow-hidden bg-[#202A36] text-white flex flex-col">
       
       {/* -------------------------------------------------------------
          1. CINEMATIC SCENIC TRAVEL VIDEO BACKGROUND
@@ -188,9 +188,9 @@ const HeroSection = ({ activePage, setActivePage, onOpenEnquiry }) => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center space-x-2 text-sm font-semibold tracking-wider uppercase text-gray-300 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15"
+          className="inline-flex items-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm font-semibold tracking-wider uppercase text-gray-300 bg-black/60 sm:bg-white/10 sm:backdrop-blur-md px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/15"
         >
-          <Compass className="w-4 h-4 text-[#E99A7F] animate-spin-slow" />
+          <Compass className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E99A7F] animate-spin-slow" />
           <span>TRAVEL • TOURS • EXPERIENCES</span>
         </motion.div>
 
@@ -201,10 +201,10 @@ const HeroSection = ({ activePage, setActivePage, onOpenEnquiry }) => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="space-y-0"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal leading-none tracking-tighter text-white/80">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-tight tracking-tighter text-white/80">
             Your Journey.
           </h1>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tighter text-white -mt-2 md:-mt-4 lg:-mt-6 drop-shadow-md">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tighter text-white -mt-1 sm:-mt-2 md:-mt-4 lg:-mt-6 drop-shadow-md">
             Our Responsibility.
           </h1>
         </motion.div>
@@ -214,7 +214,7 @@ const HeroSection = ({ activePage, setActivePage, onOpenEnquiry }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-normal leading-relaxed mb-6"
+          className="text-sm sm:text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-normal leading-relaxed mb-4 sm:mb-6"
         >
           Comfortable journeys, memorable destinations, and travel made simple.
         </motion.p>

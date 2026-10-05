@@ -18,7 +18,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
       {/* -------------------------------------------------------------
          1. HERO BANNER - 100% SCREEN VIEWPORT FIT BUS VIDEO & TITLE
          ------------------------------------------------------------- */}
-      <div className="relative min-h-screen pt-32 pb-24 overflow-hidden text-white flex flex-col items-center justify-center">
+      <div className="relative min-h-[50vh] sm:min-h-screen pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white flex flex-col items-center justify-center">
         {/* BUS VIDEO BACKGROUND */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <video
@@ -26,7 +26,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster="/hero-bus.jpg"
             className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
           >
@@ -36,7 +36,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center space-y-2.5 sm:space-y-4">
           
           {/* Neat Professional Badge */}
           <motion.div
@@ -44,7 +44,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block"
           >
-            <span className="px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-amber-300 border border-amber-400/40 text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
+            <span className="px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/70 sm:bg-black/40 sm:backdrop-blur-md text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest inline-block shadow-lg">
               {CLIENT_BUS_INFO.name} • LUXURY BUS OPERATOR
             </span>
           </motion.div>
@@ -54,7 +54,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl"
+            className="font-serif text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight"
           >
             Your Journey. <span className="text-[#FBBF24] italic">Our Responsibility.</span>
           </motion.h1>
@@ -63,7 +63,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-100 text-sm sm:text-base max-w-2xl mx-auto font-semibold drop-shadow"
+            className="text-gray-100 text-xs sm:text-base max-w-2xl mx-auto font-semibold drop-shadow"
           >
             Premium Volvo AC Sleeper & Semi-Sleeper Bus Services Across Tamil Nadu
           </motion.p>
