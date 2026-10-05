@@ -15,10 +15,10 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[48vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
+      <div className="relative min-h-[75vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="/about-hero-bg.jpg"
+            src="/about-hero-bg.webp"
             alt="Sri Saranya Travels Scenic Journey Landscape"
             fetchpriority="high"
             decoding="async"
@@ -71,7 +71,7 @@ const AboutUsPage = ({ onOpenEnquiry, setActivePage }) => {
             className="lg:col-span-6 relative h-[240px] sm:h-[420px] rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-xl border-2 sm:border-4 border-white"
           >
             <img
-              src="/about-bus-15years.jpg"
+              src="/about-bus-15years.webp"
               alt="Sri Saranya Travels 15+ Years Highway Travel Experience"
               loading="lazy"
               decoding="async"

@@ -43,7 +43,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
       duration: `${newPackage.defaultDays} Days / ${parseInt(newPackage.defaultDays) - 1} Nights`,
       startingFare: `₹${parseInt(newPackage.perDayPrice).toLocaleString()}`,
       perDayPrice: parseInt(newPackage.perDayPrice) || 2800,
-      image: '/bus-1.jpg',
+      image: '/bus-1.webp',
       placesCovered: newPackage.placesCovered.split(',').map(s => s.trim()).filter(Boolean),
       busDetail: newPackage.busDetail,
       highlights: newPackage.highlights.split(',').map(s => s.trim()).filter(Boolean)
@@ -481,7 +481,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
               <div key={pkg.id} className="bg-white border-2 border-slate-200 rounded-3xl sm:rounded-[2.5rem] p-5 sm:p-6 shadow-xl flex flex-col justify-between space-y-4">
                 <div>
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-3">
-                    <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" />
+                    <img src={pkg.image} alt={pkg.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#800000] text-white text-xs font-extrabold shadow-md">
                       {pkg.duration || `${pkg.defaultDays} Days`}
                     </span>

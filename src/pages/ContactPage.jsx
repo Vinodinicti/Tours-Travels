@@ -54,7 +54,7 @@ const ContactPage = () => {
       {/* -------------------------------------------------------------
          PAGE HERO BANNER: 100% SCREEN VIEWPORT FIT IMAGE & PERFECT ALIGNMENT
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[48vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
+      <div className="relative min-h-[75vh] sm:min-h-screen flex flex-col items-center justify-center pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1080&q=70"

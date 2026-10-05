@@ -18,7 +18,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
       {/* -------------------------------------------------------------
          1. HERO BANNER - 100% SCREEN VIEWPORT FIT BUS VIDEO & TITLE
          ------------------------------------------------------------- */}
-      <div className="relative min-h-[50vh] sm:min-h-screen pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white flex flex-col items-center justify-center">
+      <div className="relative min-h-[75vh] sm:min-h-screen pt-24 pb-14 sm:pt-32 sm:pb-24 overflow-hidden text-white flex flex-col items-center justify-center">
         {/* BUS VIDEO BACKGROUND */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <video
@@ -27,7 +27,7 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             loop
             playsInline
             preload="metadata"
-            poster="/hero-bus.jpg"
+            poster="/hero-bus.webp"
             className="w-full h-full object-cover scale-105 filter brightness-[0.85] contrast-[1.05]"
           >
             <source src="/hero-bus-video.mp4" type="video/mp4" />

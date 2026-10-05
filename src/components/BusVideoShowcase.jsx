@@ -59,7 +59,7 @@ const BusVideoShowcase = ({ onOpenBookingModal }) => {
           <video
             ref={videoRef}
             src="/hero-bus-video.mp4"
-            poster="/hero-bus.jpg"
+            poster="/hero-bus.webp"
             preload="none"
             loop
             muted={isMuted}

@@ -45,7 +45,7 @@ export const FEATURED_DESTINATIONS_PER_DAY = [
     location: "East Coast Highway",
     perDayPrice: 2800,
     formattedPrice: "₹2,800 / Day",
-    image: "/velankanni.png",
+    image: "/velankanni.webp",
     short: "Sacred Basilica of Velankanni prayer mass combined with French quarter strolls and promenade beach in Pondicherry.",
     highlights: ["Velankanni Shrine Prayer Mass", "Pondicherry French Quarter", "ECR Coastal Drive", "3-Star Hotel Stay"]
   },
@@ -57,7 +57,7 @@ export const FEATURED_DESTINATIONS_PER_DAY = [
     location: "Southern Coast",
     perDayPrice: 2700,
     formattedPrice: "₹2,700 / Day",
-    image: "/nagerkovil.png",
+    image: "/nagerkovil.webp",
     short: "Sea-shore Murugan Temple darshan in Thiruchendur with Nagerkovil & Trivandrum Padmanabhaswamy visit.",
     highlights: ["Thiruchendur Sea-shore Temple", "Padmanabhaswamy Temple", "Nagerkovil Scenic Route", "Deluxe Sleeper Coach"]
   },
@@ -105,7 +105,7 @@ export const FEATURED_DESTINATIONS_PER_DAY = [
     location: "Interstate Highway",
     perDayPrice: 3100,
     formattedPrice: "₹3,100 / Day",
-    image: "/hyderabad.jpg",
+    image: "/hyderabad.webp",
     short: "Long-distance interstate tour connecting Hyderabad Charminar circuit and Karaikal coastal beach.",
     highlights: ["Charminar & Ramoji Tour", "Karaikal Port Visit", "Executive Sleeper", "Onboard Charging"]
   }
@@ -131,7 +131,7 @@ export const BUS_FLEET_3D = [
     startingFare: "₹1,450",
     perDayRate: 3500,
     perDayFare: "₹3,500 / Day",
-    image: "/bus-1.jpg",
+    image: "/bus-1.webp",
     frontSpecs: "Ultra-quiet air suspension, dual AC climate control, LED ambient lighting, individual berth curtains.",
     amenities: ["Free High-Speed Wi-Fi", "USB & 220V Charging", "Fresh Sanitized Blankets", "Live GPS Telematics", "Personal Reading Lamp", "Free Mineral Water Bottle"],
     seatLayout: "2+1 Upper & Lower Sleeper Berths",
@@ -156,7 +156,7 @@ export const BUS_FLEET_3D = [
     startingFare: "₹1,150",
     perDayRate: 3000,
     perDayFare: "₹3,000 / Day",
-    image: "/bus-2.jpg",
+    image: "/bus-2.webp",
     frontSpecs: "Reclining ergonomic leather seats, calf support leg rest, movie entertainment screen, smooth highway suspension.",
     amenities: ["Deep Recline Seats", "Calf & Leg Rest", "Dual USB Ports", "Emergency Exit Systems", "First Aid Onboard", "Large Luggage Boot"],
     seatLayout: "2+2 Executive Reclining Seats",
@@ -181,7 +181,7 @@ export const BUS_FLEET_3D = [
     startingFare: "₹950",
     perDayRate: 2800,
     perDayFare: "₹2,800 / Day",
-    image: "/bus-3.jpg",
+    image: "/bus-3.webp",
     frontSpecs: "Spacious ventilated berths, soft foam mattresses, individual window curtains, daily outstation tours.",
     amenities: ["Super Chill Climate AC", "Bedside Charging Outlets", "Roomy Sleeper Berths", "24/7 Fleet Driver Support", "Vetted Night Highway Captains"],
     seatLayout: "2+1 AC Sleeper Berths",
@@ -214,7 +214,7 @@ export const BUS_TOUR_PACKAGES = [
     duration: "3 Days / 2 Nights",
     startingFare: "₹2,800",
     perDayPrice: 2800,
-    image: "/velankanni.png",
+    image: "/velankanni.webp",
     placesCovered: ["Velankanni Shrine", "Pondicherry", "Karaikal Beach", "Thiruchendur"],
     busDetail: "Volvo Multi-Axle AC Sleeper",
     highlights: [
@@ -231,7 +231,7 @@ export const BUS_TOUR_PACKAGES = [
     duration: "4 Days / 3 Nights",
     startingFare: "₹3,000",
     perDayPrice: 3000,
-    image: "/nagerkovil.png",
+    image: "/nagerkovil.webp",
     placesCovered: ["Karaikudi", "Devakottai", "Nagerkovil", "Trivandrum"],
     busDetail: "Air-Suspended Luxury AC Coach",
     highlights: [
