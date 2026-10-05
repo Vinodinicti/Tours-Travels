@@ -30,7 +30,7 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
       setIsLoggedIn(true);
       setLoginError('');
     } else {
-      setLoginError('Invalid Username or Password! (Hint: admin / admin123)');
+      setLoginError('Invalid Username or Password. Please try again.');
     }
   };
 
