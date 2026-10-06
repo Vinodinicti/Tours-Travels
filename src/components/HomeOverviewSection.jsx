@@ -84,7 +84,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             <button
               onClick={() => {
                 setActivePage('about');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
               }}
               className="px-8 py-3 bg-gradient-maroon-gold text-white font-extrabold rounded-xl shadow-glow-maroon hover:scale-105 transition-all text-xs inline-flex items-center space-x-2"
             >
@@ -155,7 +155,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             <button
               onClick={() => {
                 setActivePage('packages');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
               }}
               className="px-8 py-3 bg-gradient-maroon-gold text-white font-extrabold rounded-xl shadow-glow-maroon hover:scale-105 transition-all text-xs inline-flex items-center space-x-2"
             >
@@ -206,7 +206,7 @@ const HomeOverviewSection = ({ setActivePage, onOpenBookingModal }) => {
             <button
               onClick={() => {
                 setActivePage('destinations');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
               }}
               className="px-8 py-3 bg-gradient-maroon-gold text-white font-extrabold rounded-xl shadow-glow-maroon hover:scale-105 transition-all text-xs inline-flex items-center space-x-2"
             >

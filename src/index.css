@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html, body {
+    overflow-anchor: none;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer utilities {
   .text-gradient-maroon {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-maroon via-maroon-bright to-amberGold;

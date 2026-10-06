@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
@@ -23,6 +23,39 @@ function App() {
   const [bookingInitialRoute, setBookingInitialRoute] = useState('');
   const [bookingInitialStartDate, setBookingInitialStartDate] = useState('');
   const [bookingInitialEndDate, setBookingInitialEndDate] = useState('');
+
+  // Disable browser auto-scroll restoration so SPA navigation always starts at top
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  // Always start at the very top of the page on navigation (Desktop & Mobile)
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      const el = document.getElementById('page-top');
+      if (el) el.scrollTop = 0;
+    };
+
+    scrollToTop();
+    requestAnimationFrame(scrollToTop);
+
+    const t1 = setTimeout(scrollToTop, 40);
+    const t2 = setTimeout(scrollToTop, 120);
+    const t3 = setTimeout(scrollToTop, 250);
+    const t4 = setTimeout(scrollToTop, 400);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
+  }, [activePage]);
 
   // Central Tour Packages State (Managed by Admin)
   const [packagesList, setPackagesList] = useState(BUS_TOUR_PACKAGES);
@@ -128,7 +161,7 @@ function App() {
       />
 
       {/* Main Page Body */}
-      <main className="flex-grow">
+      <main id="page-top" key={activePage} className="flex-grow">
         {activePage === 'home' && (
           <>
             {/* 1. Full-screen Bus Hero Section */}

@@ -237,7 +237,7 @@ const ContactPage = ({ onAddEnquiry }) => {
                   <div className="p-4 rounded-2xl bg-gradient-to-r from-[#800000] to-[#8B1E1E] text-white shadow-lg space-y-2 border border-amber-300">
                     <div className="flex items-center justify-between text-xs border-b border-white/20 pb-2">
                       <span className="flex items-center gap-1 font-bold text-[#FBBF24]">
-                        <Calculator className="w-4 h-4" /> Automatic Price & Days Calculator
+                        <Calculator className="w-4 h-4" /> Tour Price Estimate
                       </span>
                       <span className="px-2.5 py-0.5 rounded-full bg-[#F59E0B] text-slate-950 font-extrabold text-[11px]">
                         {daysNightsText}
@@ -325,8 +325,8 @@ const ContactPage = ({ onAddEnquiry }) => {
 
                     <div className="sm:col-span-2 p-3 rounded-xl bg-amber-50/90 border border-amber-300 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-1.5 font-bold text-[#800000]">
-                        <Calculator className="w-4 h-4 text-[#D97706]" />
-                        <span>Auto-Calculated Tour Duration:</span>
+                        <Clock className="w-4 h-4 text-[#D97706]" />
+                        <span>No. of Days / Nights:</span>
                       </div>
                       <span className="px-3 py-1 rounded-full bg-[#800000] text-[#FBBF24] font-black text-xs shadow-xs tracking-wide">
                         {daysNightsText}

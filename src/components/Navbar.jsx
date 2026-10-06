@@ -22,10 +22,30 @@ const Navbar = ({ activePage, setActivePage, onOpenEnquiry }) => {
     { id: 'contact', label: 'Contact' },
   ];
 
+  const forceScrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+
+    [40, 100, 250, 400].forEach((delay) => {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, delay);
+    });
+  };
+
   const handleNavClick = (id) => {
     setActivePage(id);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    forceScrollToTop();
   };
 
   return (
@@ -109,7 +129,7 @@ const Navbar = ({ activePage, setActivePage, onOpenEnquiry }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-slate-200 shadow-xl overflow-hidden mt-2"
+            className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-200 shadow-2xl overflow-hidden max-h-[85vh] overflow-y-auto"
           >
             <div className="px-6 py-6 space-y-3">
               {navItems.map((item) => (

@@ -171,7 +171,7 @@ const BusBookingModal = ({
               <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#800000] to-[#8B1E1E] text-white shadow-md space-y-2 border border-amber-300">
                 <div className="flex items-center justify-between text-xs border-b border-white/20 pb-1.5">
                   <span className="flex items-center gap-1 font-extrabold text-[#FBBF24] text-[11px]">
-                    <Calculator className="w-3.5 h-3.5" /> Automatic Calculator
+                    <Calculator className="w-3.5 h-3.5" /> Tour Estimate
                   </span>
                   <span className="px-2.5 py-0.5 rounded-full bg-[#F59E0B] text-slate-950 font-extrabold text-[11px]">
                     {daysNightsText}
@@ -271,11 +271,11 @@ const BusBookingModal = ({
                   />
                 </div>
 
-                {/* Auto Calculated Duration Banner */}
+                {/* Duration Banner */}
                 <div className="sm:col-span-2 p-2.5 rounded-xl bg-amber-50/90 border border-amber-300 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1.5 font-bold text-[#800000]">
                     <Clock className="w-4 h-4 text-[#D97706]" />
-                    <span>Auto-Calculated Tour Duration:</span>
+                    <span>No. of Days / Nights:</span>
                   </div>
                   <span className="px-3 py-1 rounded-full bg-[#800000] text-[#FBBF24] font-black text-xs shadow-xs tracking-wide">
                     {daysNightsText}

@@ -166,7 +166,7 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
               <button
                 onClick={() => {
                   setActivePage('admin');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                 }}
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-amber-50 border-2 border-amber-400 flex items-center justify-center text-[#800000] hover:bg-[#800000] hover:text-white hover:border-[#800000] transition-all shadow-sm"
                 title="Admin Portal Login"
@@ -193,7 +193,7 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
                   <button
                     onClick={() => {
                       setActivePage(item.id);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                     }}
                     className="hover:text-[#800000] transition-colors flex items-center space-x-1"
                   >
@@ -268,7 +268,7 @@ const Footer = ({ setActivePage, onOpenEnquiry }) => {
             <button
               onClick={() => {
                 setActivePage('admin');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
               }}
               className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-center text-[#800000] hover:bg-[#800000] hover:text-white transition-all shadow-xs"
               title="Admin Portal Login"
