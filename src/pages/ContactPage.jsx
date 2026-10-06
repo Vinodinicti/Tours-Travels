@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, Mail, MessageSquare, CheckCircle2, Calculator, MapPin, Navigation } from 'lucide-react';
 import { CLIENT_BUS_INFO, FEATURED_DESTINATIONS_PER_DAY } from '../data/busData';
 
-const ContactPage = () => {
+const ContactPage = ({ onAddEnquiry }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -11,18 +11,38 @@ const ContactPage = () => {
     destination: 'Coimbatore & Nilgiri Gate',
     perDayRate: 2200,
     startDate: '',
-    numberOfDays: 3,
+    endDate: '',
     passengersCount: '2 Passengers',
     message: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Auto-calculated fields (Restricted to 1, 2, or 3 Days)
-  const days = Math.min(Math.max(parseInt(formData.numberOfDays) || 1, 1), 3);
-  const nights = days > 1 ? days - 1 : 0;
-  const daysNightsText = `${days} Day${days > 1 ? 's' : ''} / ${nights} Night${nights !== 1 ? 's' : ''}`;
-  const totalPrice = days * formData.perDayRate;
+  // Auto-calculated fields based on start and end date calendars
+  const calculateDuration = (startStr, endStr) => {
+    if (!startStr) return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    if (!endStr) return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    const [y1, m1, d1] = startStr.split('-').map(Number);
+    const [y2, m2, d2] = endStr.split('-').map(Number);
+    const start = new Date(y1, m1 - 1, d1);
+    const end = new Date(y2, m2 - 1, d2);
+    if (isNaN(start.getTime()) || isNaN(end.getTime()) || end < start) {
+      return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    }
+    const diffTime = end.getTime() - start.getTime();
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+    const calcDays = diffDays + 1;
+    const calcNights = diffDays;
+    return {
+      days: calcDays,
+      nights: calcNights,
+      text: `${calcDays} Day${calcDays > 1 ? 's' : ''} / ${calcNights} Night${calcNights !== 1 ? 's' : ''}`
+    };
+  };
+
+  const duration = calculateDuration(formData.startDate, formData.endDate);
+  const daysNightsText = duration.text;
+  const totalPrice = duration.days * formData.perDayRate;
 
   const handleDestinationChange = (e) => {
     const selectedName = e.target.value;
@@ -36,11 +56,39 @@ const ContactPage = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'startDate') {
+      setFormData(prev => ({
+        ...prev,
+        startDate: value,
+        endDate: (!prev.endDate || prev.endDate < value) ? value : prev.endDate
+      }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (onAddEnquiry) {
+      onAddEnquiry({
+        id: `enq-${Date.now()}`,
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        destination: formData.destination,
+        numberOfDays: duration.days,
+        nights: duration.nights,
+        durationText: duration.text,
+        perDayRate: formData.perDayRate,
+        totalPrice: totalPrice,
+        startDate: formData.startDate || 'Immediate',
+        endDate: formData.endDate || formData.startDate || '',
+        passengersCount: formData.passengersCount,
+        message: formData.message,
+        status: 'Pending'
+      });
+    }
     setSubmitted(true);
   };
 
@@ -251,9 +299,10 @@ const ContactPage = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Tour Start Date</label>
+                      <label className="text-xs font-bold text-[#1E293B]">Tour Start Date *</label>
                       <input
                         type="date"
+                        required
                         name="startDate"
                         value={formData.startDate}
                         onChange={handleChange}
@@ -262,30 +311,26 @@ const ContactPage = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Select Duration (1, 2, or 3 Days) *</label>
-                      <div className="grid grid-cols-3 gap-1.5 pt-0.5">
-                        {[1, 2, 3].map((num) => {
-                          const isSelected = days === num;
-                          const n = num === 1 ? 0 : num - 1;
-                          return (
-                            <button
-                              key={num}
-                              type="button"
-                              onClick={() => setFormData({ ...formData, numberOfDays: num })}
-                              className={`py-2 px-1 rounded-xl text-xs font-extrabold border transition-all text-center flex flex-col items-center justify-center ${
-                                isSelected
-                                  ? 'bg-[#800000] text-white border-[#800000] shadow-md'
-                                  : 'bg-slate-50 text-[#1E293B] border-slate-200 hover:border-amber-400'
-                              }`}
-                            >
-                              <span>{num} {num === 1 ? 'Day' : 'Days'}</span>
-                              <span className={`text-[10px] font-semibold ${isSelected ? 'text-amber-200' : 'text-gray-500'}`}>
-                                {n} {n === 1 ? 'Night' : 'Nights'}
-                              </span>
-                            </button>
-                          );
-                        })}
+                      <label className="text-xs font-bold text-[#1E293B]">Tour End Date *</label>
+                      <input
+                        type="date"
+                        required
+                        name="endDate"
+                        min={formData.startDate}
+                        value={formData.endDate}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-[#1E293B] focus:ring-2 focus:ring-[#800000] focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2 p-3 rounded-xl bg-amber-50/90 border border-amber-300 flex items-center justify-between text-xs">
+                      <div className="flex items-center gap-1.5 font-bold text-[#800000]">
+                        <Calculator className="w-4 h-4 text-[#D97706]" />
+                        <span>Auto-Calculated Tour Duration:</span>
                       </div>
+                      <span className="px-3 py-1 rounded-full bg-[#800000] text-[#FBBF24] font-black text-xs shadow-xs tracking-wide">
+                        {daysNightsText}
+                      </span>
                     </div>
 
                     <div className="space-y-1">

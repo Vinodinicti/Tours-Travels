@@ -6,11 +6,12 @@ import { CLIENT_BUS_INFO } from '../data/busData';
 const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
   const [fromCity, setFromCity] = useState('Coimbatore');
   const [toCity, setToCity] = useState('Chennai');
-  const [journeyDate, setJourneyDate] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearchBus({ fromCity, toCity, journeyDate });
+    onSearchBus({ fromCity, toCity, startDate, endDate });
   };
 
   return (
@@ -80,11 +81,11 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="w-full bg-white border-2 border-[#F59E0B] shadow-2xl rounded-2xl sm:rounded-full p-3 sm:p-4 text-[#1E293B]"
         >
-          <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-12 gap-2 items-center">
+          <form onSubmit={handleSearch} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2 items-center">
             
             {/* From City */}
-            <div className="sm:col-span-3 px-4 py-1">
-              <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
+            <div className="lg:col-span-3 px-3 py-1">
+              <label className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
                 <MapPin className="w-3.5 h-3.5 text-[#800000]" /> FROM CITY
               </label>
               <select
@@ -99,8 +100,8 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
             </div>
 
             {/* To City */}
-            <div className="sm:col-span-3 px-4 py-1 border-t sm:border-t-0 sm:border-l border-slate-200">
-              <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
+            <div className="lg:col-span-3 px-3 py-1 border-t sm:border-t-0 sm:border-l border-slate-200">
+              <label className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
                 <MapPin className="w-3.5 h-3.5 text-[#D97706]" /> TO CITY
               </label>
               <select
@@ -114,27 +115,47 @@ const BusHeroSection = ({ onSearchBus, onOpenBookingModal }) => {
               </select>
             </div>
 
-            {/* Date of Journey */}
-            <div className="sm:col-span-3 px-4 py-1 border-t sm:border-t-0 sm:border-l border-slate-200">
-              <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
-                <Calendar className="w-3.5 h-3.5 text-[#800000]" /> DATE OF JOURNEY
+            {/* Start Date */}
+            <div className="lg:col-span-2 px-3 py-1 border-t sm:border-t-0 lg:border-l border-slate-200">
+              <label className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
+                <Calendar className="w-3.5 h-3.5 text-[#800000]" /> START DATE
               </label>
               <input
                 type="date"
-                value={journeyDate}
-                onChange={(e) => setJourneyDate(e.target.value)}
+                value={startDate}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  setStartDate(val);
+                  if (!endDate || endDate < val) {
+                    setEndDate(val);
+                  }
+                }}
+                className="w-full bg-slate-50 font-extrabold text-xs text-[#1E293B] border border-slate-200 rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#800000]"
+              />
+            </div>
+
+            {/* End Date */}
+            <div className="lg:col-span-2 px-3 py-1 border-t sm:border-t-0 sm:border-l border-slate-200">
+              <label className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#800000] flex items-center gap-1.5 mb-1">
+                <Calendar className="w-3.5 h-3.5 text-[#D97706]" /> END DATE
+              </label>
+              <input
+                type="date"
+                min={startDate}
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
                 className="w-full bg-slate-50 font-extrabold text-xs text-[#1E293B] border border-slate-200 rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#800000]"
               />
             </div>
 
             {/* Search Bus Tours Button */}
-            <div className="sm:col-span-3">
+            <div className="lg:col-span-2 sm:col-span-2 border-t lg:border-t-0 pt-2 lg:pt-0">
               <button
                 type="submit"
-                className="w-full py-3.5 px-4 bg-gradient-maroon-gold text-white font-extrabold rounded-full shadow-glow-maroon hover:scale-[1.02] transition-all text-xs flex items-center justify-center space-x-2"
+                className="w-full py-3.5 px-3 bg-gradient-maroon-gold text-white font-extrabold rounded-full shadow-glow-maroon hover:scale-[1.02] transition-all text-xs flex items-center justify-center space-x-1.5"
               >
                 <Search className="w-3.5 h-3.5 text-[#FBBF24]" />
-                <span>Search Bus Tours</span>
+                <span>Search Tours</span>
               </button>
             </div>
 

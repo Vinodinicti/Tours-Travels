@@ -21,6 +21,8 @@ function App() {
   const [activePage, setActivePage] = useState('home');
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [bookingInitialRoute, setBookingInitialRoute] = useState('');
+  const [bookingInitialStartDate, setBookingInitialStartDate] = useState('');
+  const [bookingInitialEndDate, setBookingInitialEndDate] = useState('');
 
   // Central Tour Packages State (Managed by Admin)
   const [packagesList, setPackagesList] = useState(BUS_TOUR_PACKAGES);
@@ -33,9 +35,12 @@ function App() {
       phone: '+91 98421 55432',
       destination: 'Tamil Nadu Navagraha & Temple Bus Tour',
       numberOfDays: 3,
+      nights: 2,
+      durationText: '3 Days / 2 Nights',
       perDayRate: 2600,
       totalPrice: 7800,
       startDate: '2026-10-15',
+      endDate: '2026-10-17',
       passengersCount: '3-5 Family Group',
       message: 'Prefer hotel near Kumbakonam temple',
       status: 'Pending'
@@ -46,9 +51,12 @@ function App() {
       phone: '+91 94432 10987',
       destination: 'Velankanni & East Coast Highway Bus Package',
       numberOfDays: 3,
+      nights: 2,
+      durationText: '3 Days / 2 Nights',
       perDayRate: 2800,
       totalPrice: 8400,
       startDate: '2026-10-20',
+      endDate: '2026-10-22',
       passengersCount: '2 Passengers',
       message: 'Window sleeper berths preferred',
       status: 'Confirmed'
@@ -59,22 +67,31 @@ function App() {
       phone: '+91 99400 88210',
       destination: 'Thiruchendur & Nagerkovil Pilgrimage Special',
       numberOfDays: 2,
+      nights: 1,
+      durationText: '2 Days / 1 Night',
       perDayRate: 2700,
       totalPrice: 5400,
       startDate: '2026-10-12',
+      endDate: '2026-10-13',
       passengersCount: '6+ Bus Tour Group',
       message: 'Group tour for family temple trip',
       status: 'Completed'
     }
   ]);
 
-  const handleOpenBooking = (routeName = '') => {
+  const handleOpenBooking = (routeName = '', startDate = '', endDate = '') => {
     setBookingInitialRoute(routeName);
+    setBookingInitialStartDate(startDate);
+    setBookingInitialEndDate(endDate);
     setBookingModalOpen(true);
   };
 
   const handleSearchBus = (searchData) => {
-    handleOpenBooking(`${searchData.fromCity} to ${searchData.toCity} Bus Ticket`);
+    handleOpenBooking(
+      `${searchData.fromCity} to ${searchData.toCity} Bus Ticket`,
+      searchData.startDate,
+      searchData.endDate
+    );
   };
 
   // Add new enquiry from visitor modal / contact form
@@ -185,6 +202,8 @@ function App() {
         isOpen={bookingModalOpen}
         onClose={() => setBookingModalOpen(false)}
         initialRoute={bookingInitialRoute}
+        initialStartDate={bookingInitialStartDate}
+        initialEndDate={bookingInitialEndDate}
         onAddEnquiry={handleAddEnquiry}
       />
 

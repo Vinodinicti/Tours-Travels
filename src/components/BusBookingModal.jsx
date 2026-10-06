@@ -3,25 +3,53 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle2, Calendar, User, MapPin, Bus, Calculator, Clock } from 'lucide-react';
 import { CLIENT_BUS_INFO, FEATURED_DESTINATIONS_PER_DAY } from '../data/busData';
 
-const BusBookingModal = ({ isOpen, onClose, initialRoute = '', initialPerDay = 2500, onAddEnquiry }) => {
+const BusBookingModal = ({
+  isOpen,
+  onClose,
+  initialRoute = '',
+  initialPerDay = 2500,
+  initialStartDate = '',
+  initialEndDate = '',
+  onAddEnquiry
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     destination: initialRoute || 'Coimbatore & Nilgiri Gate',
     perDayRate: initialPerDay || 2500,
-    startDate: '',
-    numberOfDays: 3,
+    startDate: initialStartDate || '',
+    endDate: initialEndDate || initialStartDate || '',
     passengersCount: '2 Passengers',
     message: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Auto-calculated fields (Restricted to 1, 2, or 3 Days)
-  const days = Math.min(Math.max(parseInt(formData.numberOfDays) || 1, 1), 3);
-  const nights = days > 1 ? days - 1 : 0;
-  const daysNightsText = `${days} Day${days > 1 ? 's' : ''} / ${nights} Night${nights !== 1 ? 's' : ''}`;
-  const totalPrice = days * formData.perDayRate;
+  // Auto-calculate days and nights based on Start Date and End Date
+  const calculateDuration = (startStr, endStr) => {
+    if (!startStr) return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    if (!endStr) return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    const [y1, m1, d1] = startStr.split('-').map(Number);
+    const [y2, m2, d2] = endStr.split('-').map(Number);
+    const start = new Date(y1, m1 - 1, d1);
+    const end = new Date(y2, m2 - 1, d2);
+    if (isNaN(start.getTime()) || isNaN(end.getTime()) || end < start) {
+      return { days: 1, nights: 0, text: '1 Day / 0 Nights' };
+    }
+    const diffTime = end.getTime() - start.getTime();
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+    const calcDays = diffDays + 1;
+    const calcNights = diffDays;
+    return {
+      days: calcDays,
+      nights: calcNights,
+      text: `${calcDays} Day${calcDays > 1 ? 's' : ''} / ${calcNights} Night${calcNights !== 1 ? 's' : ''}`
+    };
+  };
+
+  const duration = calculateDuration(formData.startDate, formData.endDate);
+  const daysNightsText = duration.text;
+  const totalPrice = duration.days * formData.perDayRate;
 
   useEffect(() => {
     if (initialRoute) {
@@ -34,7 +62,14 @@ const BusBookingModal = ({ isOpen, onClose, initialRoute = '', initialPerDay = 2
         }));
       }
     }
-  }, [initialRoute]);
+    if (initialStartDate) {
+      setFormData(prev => ({
+        ...prev,
+        startDate: initialStartDate,
+        endDate: initialEndDate || initialStartDate
+      }));
+    }
+  }, [initialRoute, initialStartDate, initialEndDate]);
 
   const handleDestinationChange = (e) => {
     const selectedName = e.target.value;
@@ -56,10 +91,13 @@ const BusBookingModal = ({ isOpen, onClose, initialRoute = '', initialPerDay = 2
       name: formData.name,
       phone: formData.phone,
       destination: formData.destination,
-      numberOfDays: days,
+      numberOfDays: duration.days,
+      nights: duration.nights,
+      durationText: duration.text,
       perDayRate: formData.perDayRate,
       totalPrice: totalPrice,
       startDate: formData.startDate || 'Immediate',
+      endDate: formData.endDate || formData.startDate || '',
       passengersCount: formData.passengersCount,
       message: formData.message,
       status: 'Pending'
@@ -199,17 +237,53 @@ const BusBookingModal = ({ isOpen, onClose, initialRoute = '', initialPerDay = 2
 
                 {/* Start Date */}
                 <div className="space-y-1">
-                  <label className="text-[11px] font-extrabold text-[#1E293B]">Tour Start Date</label>
+                  <label className="text-[11px] font-extrabold text-[#1E293B] flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-[#800000]" /> Tour Start Date *
+                  </label>
                   <input
                     type="date"
+                    required
                     value={formData.startDate}
-                    onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setFormData(prev => ({
+                        ...prev,
+                        startDate: val,
+                        endDate: (!prev.endDate || prev.endDate < val) ? val : prev.endDate
+                      }));
+                    }}
                     className="w-full px-3 py-2 rounded-xl bg-slate-50 text-[#1E293B] font-semibold border border-slate-200 text-xs focus:ring-2 focus:ring-[#800000] focus:outline-none"
                   />
                 </div>
 
-                {/* Group Size */}
+                {/* End Date */}
                 <div className="space-y-1">
+                  <label className="text-[11px] font-extrabold text-[#1E293B] flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-[#D97706]" /> Tour End Date *
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    min={formData.startDate}
+                    value={formData.endDate}
+                    onChange={(e) => setFormData(prev => ({ ...prev, endDate: e.target.value }))}
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 text-[#1E293B] font-semibold border border-slate-200 text-xs focus:ring-2 focus:ring-[#800000] focus:outline-none"
+                  />
+                </div>
+
+                {/* Auto Calculated Duration Banner */}
+                <div className="sm:col-span-2 p-2.5 rounded-xl bg-amber-50/90 border border-amber-300 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-1.5 font-bold text-[#800000]">
+                    <Clock className="w-4 h-4 text-[#D97706]" />
+                    <span>Auto-Calculated Tour Duration:</span>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-[#800000] text-[#FBBF24] font-black text-xs shadow-xs tracking-wide">
+                    {daysNightsText}
+                  </span>
+                </div>
+
+                {/* Group Size */}
+                <div className="space-y-1 sm:col-span-2">
                   <label className="text-[11px] font-extrabold text-[#1E293B]">Group Size</label>
                   <select
                     value={formData.passengersCount}
@@ -223,41 +297,6 @@ const BusBookingModal = ({ isOpen, onClose, initialRoute = '', initialPerDay = 2
                   </select>
                 </div>
 
-              </div>
-
-              {/* SELECT DURATION: RESTRICTED TO ONLY 1, 2, or 3 DAYS */}
-              <div className="space-y-1.5 pt-1">
-                <label className="text-[11px] font-extrabold text-[#1E293B] flex items-center justify-between">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-[#800000]" /> Select Duration (1, 2, or 3 Days) *
-                  </span>
-                  <span className="text-[11px] font-extrabold text-[#800000]">{daysNightsText}</span>
-                </label>
-
-                {/* Interactive 1/2/3 Days Pill Selector */}
-                <div className="grid grid-cols-3 gap-2">
-                  {[1, 2, 3].map((num) => {
-                    const isSelected = days === num;
-                    const n = num === 1 ? 0 : num - 1;
-                    return (
-                      <button
-                        key={num}
-                        type="button"
-                        onClick={() => setFormData({ ...formData, numberOfDays: num })}
-                        className={`py-2 px-2 rounded-xl text-xs font-extrabold border transition-all text-center flex flex-col items-center justify-center ${
-                          isSelected
-                            ? 'bg-[#800000] text-white border-[#800000] shadow-md scale-[1.02]'
-                            : 'bg-slate-50 text-[#1E293B] border-slate-200 hover:border-amber-400'
-                        }`}
-                      >
-                        <span>{num} {num === 1 ? 'Day' : 'Days'}</span>
-                        <span className={`text-[10px] font-semibold ${isSelected ? 'text-amber-200' : 'text-gray-500'}`}>
-                          {n} {n === 1 ? 'Night' : 'Nights'}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
 
               {/* Special Requirements */}

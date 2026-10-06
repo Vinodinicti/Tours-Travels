@@ -306,11 +306,17 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
                         <span className="text-[10px] text-gray-400 uppercase font-bold block">Duration</span>
-                        <span className="font-extrabold text-slate-800 text-xs block">{enq.numberOfDays} Days Tour</span>
+                        <span className="font-extrabold text-slate-800 text-xs block">
+                          {enq.durationText || `${enq.numberOfDays} Days Tour`}
+                        </span>
                       </div>
                       <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Travel Date</span>
-                        <span className="font-extrabold text-slate-800 text-xs block">{enq.startDate || 'Immediate / Flexible'}</span>
+                        <span className="text-[10px] text-gray-400 uppercase font-bold block">Travel Dates</span>
+                        <span className="font-extrabold text-slate-800 text-xs block">
+                          {enq.endDate && enq.endDate !== enq.startDate
+                            ? `${enq.startDate} to ${enq.endDate}`
+                            : (enq.startDate || 'Immediate / Flexible')}
+                        </span>
                       </div>
                       <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-200 col-span-2">
                         <span className="text-[10px] text-gray-400 uppercase font-bold block">Passengers Group</span>
@@ -412,8 +418,14 @@ const AdminPage = ({ enquiries, onUpdateEnquiryStatus, onDeleteEnquiry, onAddPac
                             )}
                           </td>
                           <td className="p-4 align-top whitespace-nowrap">
-                            <span className="font-bold block text-slate-800">{enq.numberOfDays} Days Tour</span>
-                            <span className="text-[11px] text-gray-500 block">Start: {enq.startDate || 'Immediate'}</span>
+                            <span className="font-bold block text-slate-800">
+                              {enq.durationText || `${enq.numberOfDays} Days Tour`}
+                            </span>
+                            <span className="text-[11px] text-gray-500 block">
+                              {enq.endDate && enq.endDate !== enq.startDate
+                                ? `${enq.startDate} to ${enq.endDate}`
+                                : (enq.startDate ? `Date: ${enq.startDate}` : 'Immediate')}
+                            </span>
                           </td>
                           <td className="p-4 align-top whitespace-nowrap">
                             <span className="font-serif text-base font-extrabold text-[#D97706] block">
