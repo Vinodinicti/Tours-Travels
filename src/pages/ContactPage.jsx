@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MessageSquare, CheckCircle2, Calculator, MapPin, Navigation } from 'lucide-react';
+import { Send, Mail, MessageSquare, CheckCircle2, Calculator, MapPin, Navigation, Clock, Calendar } from 'lucide-react';
 import { CLIENT_BUS_INFO, FEATURED_DESTINATIONS_PER_DAY } from '../data/busData';
 
 const ContactPage = ({ onAddEnquiry }) => {
@@ -284,8 +284,11 @@ const ContactPage = ({ onAddEnquiry }) => {
                       />
                     </div>
 
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Select Destination</label>
+                    {/* Destination (Full Width) */}
+                    <div className="space-y-1 sm:col-span-2">
+                      <label className="text-xs font-bold text-[#1E293B] flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#800000]" /> Select Destination
+                      </label>
                       <select
                         name="destination"
                         value={formData.destination}
@@ -298,8 +301,11 @@ const ContactPage = ({ onAddEnquiry }) => {
                       </select>
                     </div>
 
+                    {/* Start Date */}
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Tour Start Date *</label>
+                      <label className="text-xs font-bold text-[#1E293B] flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-[#800000]" /> Tour Start Date *
+                      </label>
                       <input
                         type="date"
                         required
@@ -310,8 +316,11 @@ const ContactPage = ({ onAddEnquiry }) => {
                       />
                     </div>
 
+                    {/* End Date */}
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-[#1E293B]">Tour End Date *</label>
+                      <label className="text-xs font-bold text-[#1E293B] flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-[#D97706]" /> Tour End Date *
+                      </label>
                       <input
                         type="date"
                         required
@@ -323,6 +332,7 @@ const ContactPage = ({ onAddEnquiry }) => {
                       />
                     </div>
 
+                    {/* No. of Days / Nights Banner */}
                     <div className="sm:col-span-2 p-3 rounded-xl bg-amber-50/90 border border-amber-300 flex items-center justify-between text-xs">
                       <div className="flex items-center gap-1.5 font-bold text-[#800000]">
                         <Clock className="w-4 h-4 text-[#D97706]" />
@@ -333,6 +343,7 @@ const ContactPage = ({ onAddEnquiry }) => {
                       </span>
                     </div>
 
+                    {/* Group Size */}
                     <div className="space-y-1">
                       <label className="text-xs font-bold text-[#1E293B]">Group Size</label>
                       <select
@@ -346,6 +357,19 @@ const ContactPage = ({ onAddEnquiry }) => {
                         <option value="3-5 Family Group">3-5 Family Group</option>
                         <option value="6+ Bus Tour Group">6+ Bus Tour Group</option>
                       </select>
+                    </div>
+
+                    {/* Email (Optional) */}
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-[#1E293B]">Email Address (Optional)</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="e.g. name@example.com"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-[#1E293B] focus:ring-2 focus:ring-[#800000] focus:outline-none"
+                      />
                     </div>
 
                   </div>
